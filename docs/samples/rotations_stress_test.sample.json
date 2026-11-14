@@ -1,0 +1,34 @@
+{
+  "location": {"lat": 31.42, "lon": 73.08},
+  "scenario": {"delta_temp_c": 1.5, "rainfall_change_pct": -15.0},
+  "results": [
+    {
+      "rotation": {"Y1_kharif": "sorghum", "Y1_rabi": "berseem_clover", "Y2_kharif": "cotton", "Y2_rabi": "wheat"},
+      "baseline_score_0_100": 79.9,
+      "stressed_score_0_100": 74.6,
+      "score_drop": 5.3,
+      "resilience_score_0_100": 94.7,
+      "reasons": [
+        "Sorghum's drought tolerance limits water_fit loss under -15% rainfall.",
+        "Heat_risk drops the most (cotton boll stage pushed closer to critical temperature) but stays above the moderate-risk threshold."
+      ]
+    },
+    {
+      "rotation": {"Y1_kharif": "mungbean", "Y1_rabi": "wheat", "Y2_kharif": "cotton", "Y2_rabi": "chickpea"},
+      "baseline_score_0_100": 79.5,
+      "stressed_score_0_100": 71.2,
+      "score_drop": 8.3,
+      "resilience_score_0_100": 91.7,
+      "reasons": [
+        "Chickpea's flowering-stage heat sensitivity is the main source of score loss under +1.5C."
+      ]
+    }
+  ],
+  "source": {
+    "source": "sky_to_soil_rotation_optimizer",
+    "status": "ok",
+    "message": null,
+    "cache_hit": false,
+    "fetched_at": "2026-11-14T06:00:00Z"
+  }
+}

@@ -1,0 +1,373 @@
+[
+  {
+    "id": "wheat",
+    "name": "Wheat (bread wheat)",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "rabi",
+    "sowing_window": "Nov 1 - Nov 30",
+    "duration_days": 150,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 15, "kc": 0.4},
+      {"stage": "development", "length_days": 25, "kc": 0.7},
+      {"stage": "mid", "length_days": 50, "kc": 1.15},
+      {"stage": "late", "length_days": 30, "kc": 0.4}
+    ],
+    "critical_temp_c": 32,
+    "heat_sensitive_stage": "anthesis/grain-filling",
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "texture_preference": ["loam", "clay_loam", "silt_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.2,
+    "sources": {
+      "kc_stages": {"text": "FAO Irrigation and Drainage Paper 56, Table 12 (wheat)", "verify": false},
+      "critical_temp_c": {"text": "Farooq et al. 2011, J. Agronomy & Crop Science 'Heat Stress in Wheat' — >30-32C during anthesis/grain-filling cuts yield", "verify": true},
+      "ph_min": {"text": "FAO Land and Water Division crop requirements (wheat), general agronomic range", "verify": false},
+      "duration_days": {"text": "FAO-56 Table 11 (wheat, approx. total growing period 120-150 days for winter wheat)", "verify": true}
+    }
+  },
+  {
+    "id": "rice",
+    "name": "Rice (paddy, transplanted)",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "kharif",
+    "sowing_window": "Jun 1 - Jun 30 (nursery); transplant Jul",
+    "duration_days": 135,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 30, "kc": 1.05},
+      {"stage": "development", "length_days": 30, "kc": 1.15},
+      {"stage": "mid", "length_days": 45, "kc": 1.2},
+      {"stage": "late", "length_days": 30, "kc": 0.9}
+    ],
+    "critical_temp_c": 35,
+    "heat_sensitive_stage": "flowering/anthesis",
+    "ph_min": 5.5,
+    "ph_max": 7.0,
+    "texture_preference": ["clay", "clay_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 0.5,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (rice, paddy)", "verify": false},
+      "critical_temp_c": {"text": "Jagadish et al. 2007, J. Experimental Botany — rice spikelet sterility rises sharply >35C at anthesis", "verify": true},
+      "rooting_depth_m": {"text": "FAO-56 Table 22 (rice rooting depth, shallow due to standing water culture)", "verify": true}
+    }
+  },
+  {
+    "id": "maize",
+    "name": "Maize",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "kharif",
+    "sowing_window": "May 15 - Jun 15",
+    "duration_days": 120,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.3},
+      {"stage": "development", "length_days": 35, "kc": 0.75},
+      {"stage": "mid", "length_days": 40, "kc": 1.2},
+      {"stage": "late", "length_days": 25, "kc": 0.6}
+    ],
+    "critical_temp_c": 35,
+    "heat_sensitive_stage": "silking/pollination",
+    "ph_min": 5.8,
+    "ph_max": 7.2,
+    "texture_preference": ["loam", "sandy_loam", "clay_loam"],
+    "residue_contribution": "high",
+    "rooting_depth_m": 1.5,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (maize, grain)", "verify": false},
+      "critical_temp_c": {"text": "Lobell et al. 2011/Hatfield & Prueger 2015 — maize pollen viability drops sharply above ~35C at silking", "verify": true}
+    }
+  },
+  {
+    "id": "cotton",
+    "name": "Cotton",
+    "family": "Malvaceae",
+    "n_fixing": false,
+    "season": "kharif",
+    "sowing_window": "Apr 15 - May 31",
+    "duration_days": 165,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 30, "kc": 0.35},
+      {"stage": "development", "length_days": 50, "kc": 0.75},
+      {"stage": "mid", "length_days": 55, "kc": 1.15},
+      {"stage": "late", "length_days": 30, "kc": 0.6}
+    ],
+    "critical_temp_c": 38,
+    "heat_sensitive_stage": "flowering/boll set",
+    "ph_min": 5.8,
+    "ph_max": 8.0,
+    "texture_preference": ["loam", "clay_loam", "sandy_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.5,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (cotton)", "verify": false},
+      "critical_temp_c": {"text": "Reddy et al. 1992 and Rehman et al. 2018 — cotton boll retention declines above ~35-38C during flowering/boll set", "verify": true}
+    }
+  },
+  {
+    "id": "sugarcane",
+    "name": "Sugarcane",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "either",
+    "sowing_window": "Feb-Mar (spring) or Sep-Oct (autumn), ratoon/perennial",
+    "duration_days": 365,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 35, "kc": 0.4},
+      {"stage": "development", "length_days": 60, "kc": 0.85},
+      {"stage": "mid", "length_days": 190, "kc": 1.25},
+      {"stage": "late", "length_days": 80, "kc": 0.75}
+    ],
+    "critical_temp_c": 38,
+    "heat_sensitive_stage": "grand growth/tillering",
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "texture_preference": ["loam", "clay_loam"],
+    "residue_contribution": "high",
+    "rooting_depth_m": 1.8,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (sugarcane, full year crop)", "verify": true},
+      "duration_days": {"text": "Typical annual-cycle sugarcane crop duration, Punjab practice; varies 10-18 months by variety", "verify": true}
+    }
+  },
+  {
+    "id": "chickpea",
+    "name": "Chickpea (gram)",
+    "family": "Fabaceae",
+    "n_fixing": true,
+    "season": "rabi",
+    "sowing_window": "Oct 15 - Nov 15",
+    "duration_days": 120,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.4},
+      {"stage": "development", "length_days": 30, "kc": 0.7},
+      {"stage": "mid", "length_days": 45, "kc": 1.0},
+      {"stage": "late", "length_days": 25, "kc": 0.35}
+    ],
+    "critical_temp_c": 32,
+    "heat_sensitive_stage": "flowering/pod set",
+    "ph_min": 6.0,
+    "ph_max": 7.5,
+    "texture_preference": ["loam", "sandy_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.0,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (chickpea/legumes group)", "verify": false},
+      "critical_temp_c": {"text": "Devasirvatham et al. 2012, Functional Plant Biology — chickpea flower/pod abortion rises above ~30-35C", "verify": true},
+      "n_fixing": {"text": "Standard legume (Fabaceae) rhizobial N-fixation", "verify": false}
+    }
+  },
+  {
+    "id": "lentil",
+    "name": "Lentil",
+    "family": "Fabaceae",
+    "n_fixing": true,
+    "season": "rabi",
+    "sowing_window": "Oct 25 - Nov 20",
+    "duration_days": 110,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.4},
+      {"stage": "development", "length_days": 25, "kc": 0.7},
+      {"stage": "mid", "length_days": 40, "kc": 1.1},
+      {"stage": "late", "length_days": 25, "kc": 0.3}
+    ],
+    "critical_temp_c": 30,
+    "heat_sensitive_stage": "flowering/pod set",
+    "ph_min": 6.0,
+    "ph_max": 8.0,
+    "texture_preference": ["loam", "sandy_loam", "clay_loam"],
+    "residue_contribution": "low",
+    "rooting_depth_m": 0.8,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (lentil/legumes group)", "verify": true},
+      "critical_temp_c": {"text": "Erskine et al. 1994 / Delahunty et al. 2015 — lentil heat stress at flowering above ~30C", "verify": true}
+    }
+  },
+  {
+    "id": "mungbean",
+    "name": "Mungbean (green gram)",
+    "family": "Fabaceae",
+    "n_fixing": true,
+    "season": "kharif",
+    "sowing_window": "Mar 15 - Apr 10 (spring) or Jul 1 - Jul 20 (summer)",
+    "duration_days": 65,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 15, "kc": 0.4},
+      {"stage": "development", "length_days": 15, "kc": 0.7},
+      {"stage": "mid", "length_days": 20, "kc": 1.05},
+      {"stage": "late", "length_days": 15, "kc": 0.6}
+    ],
+    "critical_temp_c": 38,
+    "heat_sensitive_stage": "flowering/pod set",
+    "ph_min": 6.2,
+    "ph_max": 7.2,
+    "texture_preference": ["loam", "sandy_loam"],
+    "residue_contribution": "low",
+    "rooting_depth_m": 0.6,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (mungbean/legumes, short-duration pulse group)", "verify": true},
+      "duration_days": {"text": "Typical short-duration mungbean cultivar cycle, South Asian agronomy extension guides", "verify": true}
+    }
+  },
+  {
+    "id": "sorghum",
+    "name": "Sorghum (grain)",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "kharif",
+    "sowing_window": "Jun 1 - Jul 15",
+    "duration_days": 110,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.3},
+      {"stage": "development", "length_days": 30, "kc": 0.7},
+      {"stage": "mid", "length_days": 35, "kc": 1.0},
+      {"stage": "late", "length_days": 25, "kc": 0.5}
+    ],
+    "critical_temp_c": 40,
+    "heat_sensitive_stage": "flowering/panicle exsertion",
+    "ph_min": 5.5,
+    "ph_max": 8.5,
+    "texture_preference": ["loam", "clay_loam", "sandy_loam"],
+    "residue_contribution": "high",
+    "rooting_depth_m": 1.3,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (sorghum)", "verify": false},
+      "critical_temp_c": {"text": "Prasad et al. 2008, Agric. & Forest Meteorology — sorghum pollen viability declines above ~ 40C; generally more heat tolerant than maize", "verify": true},
+      "texture_preference": {"text": "Sorghum is widely noted as broadly texture-tolerant and drought-tolerant; range given is indicative", "verify": true}
+    }
+  },
+  {
+    "id": "pearl_millet",
+    "name": "Pearl millet (bajra)",
+    "family": "Poaceae",
+    "n_fixing": false,
+    "season": "kharif",
+    "sowing_window": "Jun 15 - Jul 15",
+    "duration_days": 90,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 15, "kc": 0.3},
+      {"stage": "development", "length_days": 25, "kc": 0.65},
+      {"stage": "mid", "length_days": 30, "kc": 1.0},
+      {"stage": "late", "length_days": 20, "kc": 0.45}
+    ],
+    "critical_temp_c": 42,
+    "heat_sensitive_stage": "flowering/panicle exsertion",
+    "ph_min": 5.5,
+    "ph_max": 8.0,
+    "texture_preference": ["sandy_loam", "loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.2,
+    "sources": {
+      "kc_stages": {"text": "FAO crop water needs references for millet (pearl millet grouped with sorghum/millet Kc pattern)", "verify": true},
+      "critical_temp_c": {"text": "Djanaguiraman et al. 2018, Plant Cell & Environment — pearl millet among the most heat-tolerant cereals, pollen viability maintained to ~42C", "verify": true}
+    }
+  },
+  {
+    "id": "mustard",
+    "name": "Mustard / canola (rapeseed-mustard)",
+    "family": "Brassicaceae",
+    "n_fixing": false,
+    "season": "rabi",
+    "sowing_window": "Oct 1 - Oct 25",
+    "duration_days": 110,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.35},
+      {"stage": "development", "length_days": 30, "kc": 0.7},
+      {"stage": "mid", "length_days": 35, "kc": 1.1},
+      {"stage": "late", "length_days": 25, "kc": 0.35}
+    ],
+    "critical_temp_c": 30,
+    "heat_sensitive_stage": "flowering/pod set",
+    "ph_min": 5.5,
+    "ph_max": 7.5,
+    "texture_preference": ["loam", "sandy_loam", "clay_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.0,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (rapeseed/canola/mustard group)", "verify": false},
+      "critical_temp_c": {"text": "Morrison & Stewart 2002, Agronomy Journal — canola/mustard flowering heat sensitivity above ~29-30C", "verify": true}
+    }
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "family": "Solanaceae",
+    "n_fixing": false,
+    "season": "rabi",
+    "sowing_window": "Oct 15 - Nov 15",
+    "duration_days": 110,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 25, "kc": 0.4},
+      {"stage": "development", "length_days": 30, "kc": 0.75},
+      {"stage": "mid", "length_days": 35, "kc": 1.15},
+      {"stage": "late", "length_days": 20, "kc": 0.75}
+    ],
+    "critical_temp_c": 29,
+    "heat_sensitive_stage": "tuber initiation/bulking",
+    "ph_min": 5.0,
+    "ph_max": 6.5,
+    "texture_preference": ["sandy_loam", "loam"],
+    "residue_contribution": "low",
+    "rooting_depth_m": 0.5,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (potato)", "verify": false},
+      "critical_temp_c": {"text": "Hancock et al. 2014, Plant Science — potato tuberization suppressed above soil/canopy temps ~ 25-29C", "verify": true},
+      "ph_min": {"text": "Potato prefers slightly acidic soils, standard agronomic guidance (also reduces scab incidence)", "verify": false}
+    }
+  },
+  {
+    "id": "berseem_clover",
+    "name": "Berseem clover (Egyptian clover, fodder/cover)",
+    "family": "Fabaceae",
+    "n_fixing": true,
+    "season": "rabi",
+    "sowing_window": "Oct 15 - Nov 10",
+    "duration_days": 150,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.4},
+      {"stage": "development", "length_days": 30, "kc": 0.85},
+      {"stage": "mid", "length_days": 70, "kc": 1.05},
+      {"stage": "late", "length_days": 30, "kc": 0.85}
+    ],
+    "critical_temp_c": 32,
+    "heat_sensitive_stage": "vegetative regrowth after cutting",
+    "ph_min": 6.5,
+    "ph_max": 8.0,
+    "texture_preference": ["loam", "clay_loam", "silt_loam"],
+    "residue_contribution": "high",
+    "rooting_depth_m": 0.9,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (clover/forage legumes, multi-cut)", "verify": true},
+      "n_fixing": {"text": "Berseem is a classic Fabaceae green-manure/fodder N-fixer used widely in South Asian rotations", "verify": false},
+      "residue_contribution": {"text": "Multi-cut clover plowed-in biomass is widely cited as a strong soil organic matter / green manure contributor", "verify": true}
+    }
+  },
+  {
+    "id": "soybean",
+    "name": "Soybean",
+    "family": "Fabaceae",
+    "n_fixing": true,
+    "season": "kharif",
+    "sowing_window": "Jun 1 - Jun 30",
+    "duration_days": 110,
+    "kc_stages": [
+      {"stage": "initial", "length_days": 20, "kc": 0.4},
+      {"stage": "development", "length_days": 25, "kc": 0.75},
+      {"stage": "mid", "length_days": 45, "kc": 1.15},
+      {"stage": "late", "length_days": 20, "kc": 0.5}
+    ],
+    "critical_temp_c": 35,
+    "heat_sensitive_stage": "flowering/pod set",
+    "ph_min": 6.0,
+    "ph_max": 7.0,
+    "texture_preference": ["loam", "clay_loam", "silt_loam"],
+    "residue_contribution": "medium",
+    "rooting_depth_m": 1.3,
+    "sources": {
+      "kc_stages": {"text": "FAO-56 Table 12 (soybean)", "verify": false},
+      "critical_temp_c": {"text": "Salem et al. 2007 / Djanaguiraman et al. 2013 — soybean pollen viability and pod set decline above ~35C", "verify": true}
+    }
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "answer": "The recommendation is based on the farm‑specific rotation score and climate data. The rotation of wheat (bread wheat) in both Year 1 and Year 2 received a base score of 54.3 and a priority‑weighted score of 57.6, with sub‑scores showing good heat risk (80.0) and moderate soil suitability (65.0). The heat‑sensitive growth stages of wheat mostly avoid the hottest days, as noted in the reasons. However, the water‑fit sub‑score is low (40.5) and the warnings note that significant supplemental irrigation will likely be needed to meet wheat’s water demand (water deficit 206.8 mm). The climate shift data show a recent increase in rabi rainfall (from 76.58 mm to 125.93 mm) and a slight decrease in maximum temperature, which supports wheat’s lower heat stress but does not fully offset the water deficit. Because soil data are unavailable, the soil‑health sub‑score is modest (31.6) and the plan assumes default soil suitability. Overall, the rotation was chosen because wheat’s growth timing matches the local heat pattern and the recent climate trends, while the score and warnings highlight the need for irrigation and soil‑health attention. You should confirm this plan with a local extension officer before implementing it.",
+  "language": "en",
+  "verified": true,
+  "issues": [],
+  "answerable": true,
+  "rewrites_used": 0,
+  "facts_used": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "current_crops": [
+      "wheat",
+      "cotton"
+    ],
+    "rotation_crops": {
+      "Y1_rabi": "Wheat (bread wheat)",
+      "Y2_rabi": "Wheat (bread wheat)"
+    },
+    "per_crop": {
+      "wheat": {
+        "name": "Wheat (bread wheat)",
+        "slot": "Y1_rabi",
+        "family": "Poaceae",
+        "n_fixing": false,
+        "residue_contribution": "medium",
+        "data_available": true,
+        "etc_total_mm": 261.7,
+        "total_rainfall_mm": 60.9,
+        "effective_rainfall_mm": 54.95,
+        "water_deficit_mm": 206.8,
+        "heat_stress_days": 0,
+        "heat_window_length_days": 50,
+        "pct_heat_window_days_hot": 0.0,
+        "critical_temp_c": 32
+      }
+    },
+    "rotation_score": {
+      "base_score_0_100": 54.3,
+      "priority_weighted_score_0_100": 57.6,
+      "sub_scores": {
+        "water_fit": 40.5,
+        "heat_risk": 80.0,
+        "soil_health": 31.6,
+        "soil_suitability": 65.0
+      },
+      "reasons": [
+        "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+      ],
+      "warnings": [
+        "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+        "Includes a fallow season with no crop income.",
+        "Soil suitability used default assumptions because local soil data was unavailable."
+      ]
+    },
+    "stress_test": {
+      "data_available": true,
+      "delta_temp_c": 1.5,
+      "rainfall_change_pct": -15.0,
+      "baseline_score_0_100": 54.3,
+      "stressed_score_0_100": 53.8,
+      "score_drop": 0.5,
+      "resilience_score_0_100": 99.5
+    },
+    "soil": {
+      "data_available": false
+    },
+    "climate_shift": {
+      "data_available": true,
+      "baseline_period": "2001-2012",
+      "recent_period": "2013-2025",
+      "mean_tmax_c_baseline": 34.109,
+      "mean_tmax_c_recent": 33.26,
+      "delta_tmax_c": -0.849,
+      "mean_tmin_c_baseline": 19.556,
+      "mean_tmin_c_recent": 19.331,
+      "delta_tmin_c": -0.225,
+      "kharif_rainfall_mm_baseline": 311.09,
+      "kharif_rainfall_mm_recent": 402.12,
+      "rabi_rainfall_mm_baseline": 76.58,
+      "rabi_rainfall_mm_recent": 125.93,
+      "root_zone_wetness_baseline": 0.359,
+      "root_zone_wetness_recent": 0.378,
+      "trends": [
+        {
+          "variable": "annual_mean_tmax_c",
+          "direction": "decreasing",
+          "significant": true,
+          "sen_slope_per_year": -0.06938
+        },
+        {
+          "variable": "annual_mean_tmin_c",
+          "direction": "no trend",
+          "significant": false,
+          "sen_slope_per_year": -0.01383
+        },
+        {
+          "variable": "root_zone_wetness",
+          "direction": "increasing",
+          "significant": true,
+          "sen_slope_per_year": 0.00157
+        },
+        {
+          "variable": "kharif_rainfall_mm",
+          "direction": "increasing",
+          "significant": true,
+          "sen_slope_per_year": 11.33364
+        },
+        {
+          "variable": "rabi_rainfall_mm",
+          "direction": "no trend",
+          "significant": false,
+          "sen_slope_per_year": 1.0305
+        }
+      ]
+    },
+    "data_sources": [
+      {
+        "source": "nasa_power",
+        "status": "ok"
+      },
+      {
+        "source": "isric_soilgrids",
+        "status": "manual_input_needed"
+      },
+      {
+        "source": "sky_to_soil_rotation_optimizer",
+        "status": "ok"
+      }
+    ]
+  },
+  "kb_sources": [
+    "FAO-56",
+    "crop residue and soil organic matter",
+    "legume nitrogen fixation",
+    "water-saving practices"
+  ],
+  "model_used": "openai/gpt-oss-120b"
+}

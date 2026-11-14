@@ -1,0 +1,120 @@
+{
+  "crops": [
+    {
+      "id": "wheat",
+      "name": "Wheat (bread wheat)",
+      "family": "Poaceae",
+      "n_fixing": false,
+      "season": "rabi",
+      "sowing_window": "Nov 1 - Nov 30",
+      "duration_days": 150,
+      "kc_stages": [
+        {
+          "stage": "initial",
+          "length_days": 15,
+          "kc": 0.4
+        },
+        {
+          "stage": "development",
+          "length_days": 25,
+          "kc": 0.7
+        },
+        {
+          "stage": "mid",
+          "length_days": 50,
+          "kc": 1.15
+        },
+        {
+          "stage": "late",
+          "length_days": 30,
+          "kc": 0.4
+        }
+      ],
+      "critical_temp_c": 32,
+      "heat_sensitive_stage": "anthesis/grain-filling",
+      "ph_min": 6.0,
+      "ph_max": 7.5,
+      "texture_preference": [
+        "loam",
+        "clay_loam",
+        "silt_loam"
+      ],
+      "residue_contribution": "medium",
+      "rooting_depth_m": 1.2,
+      "sources": {
+        "kc_stages": {
+          "text": "FAO Irrigation and Drainage Paper 56, Table 12 (wheat)",
+          "verify": false
+        },
+        "critical_temp_c": {
+          "text": "Farooq et al. 2011, J. Agronomy & Crop Science 'Heat Stress in Wheat' \u00e2\u20ac\u201d >30-32C during anthesis/grain-filling cuts yield",
+          "verify": true
+        },
+        "ph_min": {
+          "text": "FAO Land and Water Division crop requirements (wheat), general agronomic range",
+          "verify": false
+        },
+        "duration_days": {
+          "text": "FAO-56 Table 11 (wheat, approx. total growing period 120-150 days for winter wheat)",
+          "verify": true
+        }
+      }
+    },
+    {
+      "id": "rice",
+      "name": "Rice (paddy, transplanted)",
+      "family": "Poaceae",
+      "n_fixing": false,
+      "season": "kharif",
+      "sowing_window": "Jun 1 - Jun 30 (nursery); transplant Jul",
+      "duration_days": 135,
+      "kc_stages": [
+        {
+          "stage": "initial",
+          "length_days": 30,
+          "kc": 1.05
+        },
+        {
+          "stage": "development",
+          "length_days": 30,
+          "kc": 1.15
+        },
+        {
+          "stage": "mid",
+          "length_days": 45,
+          "kc": 1.2
+        },
+        {
+          "stage": "late",
+          "length_days": 30,
+          "kc": 0.9
+        }
+      ],
+      "critical_temp_c": 35,
+      "heat_sensitive_stage": "flowering/anthesis",
+      "ph_min": 5.5,
+      "ph_max": 7.0,
+      "texture_preference": [
+        "clay",
+        "clay_loam"
+      ],
+      "residue_contribution": "medium",
+      "rooting_depth_m": 0.5,
+      "sources": {
+        "kc_stages": {
+          "text": "FAO-56 Table 12 (rice, paddy)",
+          "verify": false
+        },
+        "critical_temp_c": {
+          "text": "Jagadish et al. 2007, J. Experimental Botany \u00e2\u20ac\u201d rice spikelet sterility rises sharply >35C at anthesis",
+          "verify": true
+        },
+        "rooting_depth_m": {
+          "text": "FAO-56 Table 22 (rice rooting depth, shallow due to standing water culture)",
+          "verify": true
+        }
+      }
+    }
+  ],
+  "count": 14
+}

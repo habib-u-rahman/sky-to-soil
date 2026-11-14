@@ -1,0 +1,52 @@
+{
+  "location": {"lat": 31.42, "lon": 73.08},
+  "baseline": {
+    "period_label": "2001-2012",
+    "start_year": 2001,
+    "end_year": 2012,
+    "n_years": 12,
+    "mean_tmax_c": 30.1,
+    "mean_tmin_c": 17.4,
+    "hot_days_gt35_by_season": {"kharif": 61.3, "rabi": 1.1},
+    "hot_days_gt40_by_season": {"kharif": 11.8, "rabi": 0.0},
+    "seasonal_rainfall_mm": {"kharif_mm": 258.4, "rabi_mm": 64.7},
+    "mean_root_zone_wetness": 0.37
+  },
+  "recent": {
+    "period_label": "2013-2024",
+    "start_year": 2013,
+    "end_year": 2024,
+    "n_years": 12,
+    "mean_tmax_c": 31.0,
+    "mean_tmin_c": 18.2,
+    "hot_days_gt35_by_season": {"kharif": 68.9, "rabi": 1.6},
+    "hot_days_gt40_by_season": {"kharif": 15.2, "rabi": 0.0},
+    "seasonal_rainfall_mm": {"kharif_mm": 241.9, "rabi_mm": 59.3},
+    "mean_root_zone_wetness": 0.34
+  },
+  "deltas": {
+    "mean_tmax_c": 0.9,
+    "mean_tmin_c": 0.8,
+    "kharif_rainfall_mm": -16.5,
+    "rabi_rainfall_mm": -5.4,
+    "mean_root_zone_wetness": -0.03
+  },
+  "trends": [
+    {"variable": "annual_mean_tmax_c", "mk_trend": "increasing", "mk_p_value": 0.012, "sen_slope_per_year": 0.051, "significant_at_0_10": true},
+    {"variable": "annual_mean_tmin_c", "mk_trend": "increasing", "mk_p_value": 0.034, "sen_slope_per_year": 0.047, "significant_at_0_10": true},
+    {"variable": "kharif_rainfall_mm", "mk_trend": "no trend", "mk_p_value": 0.41, "sen_slope_per_year": -1.2, "significant_at_0_10": false},
+    {"variable": "rabi_rainfall_mm", "mk_trend": "no trend", "mk_p_value": 0.58, "sen_slope_per_year": -0.4, "significant_at_0_10": false},
+    {"variable": "root_zone_wetness", "mk_trend": "decreasing", "mk_p_value": 0.08, "sen_slope_per_year": -0.0021, "significant_at_0_10": true}
+  ],
+  "seasons_used": {
+    "kharif": {"name": "kharif", "start_month": 5, "end_month": 10},
+    "rabi": {"name": "rabi", "start_month": 11, "end_month": 4}
+  },
+  "source": {
+    "source": "nasa_power",
+    "status": "ok",
+    "message": null,
+    "cache_hit": true,
+    "fetched_at": "2026-11-14T06:00:00Z"
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "location": {
+    "lat": 31.42,
+    "lon": 73.08
+  },
+  "generated_at": "2026-11-14T06:00:00Z",
+  "climate": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "baseline": {
+      "period_label": "2001-2012",
+      "start_year": 2001,
+      "end_year": 2012,
+      "n_years": 12,
+      "mean_tmax_c": 30.1,
+      "mean_tmin_c": 17.4,
+      "hot_days_gt35_by_season": {
+        "kharif": 61.3,
+        "rabi": 1.1
+      },
+      "hot_days_gt40_by_season": {
+        "kharif": 11.8,
+        "rabi": 0.0
+      },
+      "seasonal_rainfall_mm": {
+        "kharif_mm": 258.4,
+        "rabi_mm": 64.7
+      },
+      "mean_root_zone_wetness": 0.37
+    },
+    "recent": {
+      "period_label": "2013-2024",
+      "start_year": 2013,
+      "end_year": 2024,
+      "n_years": 12,
+      "mean_tmax_c": 31.0,
+      "mean_tmin_c": 18.2,
+      "hot_days_gt35_by_season": {
+        "kharif": 68.9,
+        "rabi": 1.6
+      },
+      "hot_days_gt40_by_season": {
+        "kharif": 15.2,
+        "rabi": 0.0
+      },
+      "seasonal_rainfall_mm": {
+        "kharif_mm": 241.9,
+        "rabi_mm": 59.3
+      },
+      "mean_root_zone_wetness": 0.34
+    },
+    "deltas": {
+      "mean_tmax_c": 0.9,
+      "mean_tmin_c": 0.8,
+      "kharif_rainfall_mm": -16.5,
+      "rabi_rainfall_mm": -5.4,
+      "mean_root_zone_wetness": -0.03
+    },
+    "trends": [
+      {
+        "variable": "annual_mean_tmax_c",
+        "mk_trend": "increasing",
+        "mk_p_value": 0.012,
+        "sen_slope_per_year": 0.051,
+        "significant_at_0_10": true
+      },
+      {
+        "variable": "annual_mean_tmin_c",
+        "mk_trend": "increasing",
+        "mk_p_value": 0.034,
+        "sen_slope_per_year": 0.047,
+        "significant_at_0_10": true
+      },
+      {
+        "variable": "kharif_rainfall_mm",
+        "mk_trend": "no trend",
+        "mk_p_value": 0.41,
+        "sen_slope_per_year": -1.2,
+        "significant_at_0_10": false
+      },
+      {
+        "variable": "rabi_rainfall_mm",
+        "mk_trend": "no trend",
+        "mk_p_value": 0.58,
+        "sen_slope_per_year": -0.4,
+        "significant_at_0_10": false
+      },
+      {
+        "variable": "root_zone_wetness",
+        "mk_trend": "decreasing",
+        "mk_p_value": 0.08,
+        "sen_slope_per_year": -0.0021,
+        "significant_at_0_10": true
+      }
+    ],
+    "seasons_used": {
+      "kharif": {
+        "name": "kharif",
+        "start_month": 5,
+        "end_month": 10
+      },
+      "rabi": {
+        "name": "rabi",
+        "start_month": 11,
+        "end_month": 4
+      }
+    },
+    "source": {
+      "source": "nasa_power",
+      "status": "ok",
+      "message": null,
+      "cache_hit": true,
+      "fetched_at": "2026-11-14T06:00:00Z"
+    }
+  },
+  "soil": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "layers": [
+      {
+        "depth": "0-5cm",
+        "phh2o": null,
+        "clay_pct": null,
+        "sand_pct": null,
+        "silt_pct": null,
+        "soc_g_kg": null,
+        "nitrogen_g_kg": null,
+        "cec_cmol_kg": null
+      },
+      {
+        "depth": "5-15cm",
+        "phh2o": null,
+        "clay_pct": null,
+        "sand_pct": null,
+        "silt_pct": null,
+        "soc_g_kg": null,
+        "nitrogen_g_kg": null,
+        "cec_cmol_kg": null
+      },
+      {
+        "depth": "15-30cm",
+        "phh2o": null,
+        "clay_pct": null,
+        "sand_pct": null,
+        "silt_pct": null,
+        "soc_g_kg": null,
+        "nitrogen_g_kg": null,
+        "cec_cmol_kg": null
+      }
+    ],
+    "status": "manual_input_needed",
+    "message": "ISRIC SoilGrids returned HTTP 200 but null values for every property/depth at this location (verified against multiple test points on 2026-11-14) \u00e2\u20ac\u201d likely an upstream data outage. Please enter soil values manually.",
+    "source": {
+      "source": "isric_soilgrids",
+      "status": "manual_input_needed",
+      "message": "all properties null from upstream",
+      "cache_hit": false,
+      "fetched_at": "2026-11-14T06:00:00Z"
+    }
+  },
+  "ndvi": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "period_start": "2023-01-01",
+    "period_end": "2023-02-02",
+    "points": [
+      {
+        "modis_date": "A2023001",
+        "calendar_date": "2023-01-01",
+        "ndvi": 0.1646,
+        "quality_code": 3,
+        "quality_label": "cloudy",
+        "usable": false
+      },
+      {
+        "modis_date": "A2023017",
+        "calendar_date": "2023-01-17",
+        "ndvi": 0.1136,
+        "quality_code": 3,
+        "quality_label": "cloudy",
+        "usable": false
+      },
+      {
+        "modis_date": "A2023033",
+        "calendar_date": "2023-02-02",
+        "ndvi": 0.2458,
+        "quality_code": 0,
+        "quality_label": "good",
+        "usable": true
+      }
+    ],
+    "mean_ndvi_good_quality": 0.2458,
+    "pct_usable": 33.3,
+    "status": "partial",
+    "message": "2 of 3 composites were low quality (cloudy) and excluded from the mean",
+    "source": {
+      "source": "ornl_modis_mod13q1",
+      "status": "ok",
+      "message": null,
+      "cache_hit": false,
+      "fetched_at": "2026-11-14T06:00:00Z"
+    }
+  },
+  "rotations": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "priorities": {
+      "save_water": 0.3,
+      "build_soil": 0.3,
+      "lower_climate_risk": 0.2,
+      "stay_close_to_current": 0.2,
+      "income_proxy": null
+    },
+    "candidates_evaluated": 1764,
+    "top": [
+      {
+        "rotation": {
+          "Y1_kharif": "mungbean",
+          "Y1_rabi": "wheat",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "chickpea"
+        },
+        "sub_scores": {
+          "water_fit": 78.2,
+          "heat_risk": 70.5,
+          "soil_health": 88.0,
+          "soil_suitability": 81.4
+        },
+        "base_score_0_100": 79.5,
+        "priority_weighted_score_0_100": 82.1,
+        "reasons": [
+          "Mungbean (N-fixing) precedes wheat, adding residual nitrogen ahead of a heavy feeder.",
+          "Four different plant families across the rotation breaks pest/disease cycles.",
+          "Chickpea after cotton gives the soil a second legume break and needs little irrigation.",
+          "Shallow-to-deep rooting alternation (mungbean -> wheat -> cotton -> chickpea) improves soil structure at multiple depths."
+        ],
+        "warnings": []
+      },
+      {
+        "rotation": {
+          "Y1_kharif": "sorghum",
+          "Y1_rabi": "berseem_clover",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "wheat"
+        },
+        "sub_scores": {
+          "water_fit": 83.0,
+          "heat_risk": 74.1,
+          "soil_health": 85.6,
+          "soil_suitability": 76.9
+        },
+        "base_score_0_100": 79.9,
+        "priority_weighted_score_0_100": 80.7,
+        "reasons": [
+          "Sorghum is markedly drought-tolerant, lowering irrigation need in the hottest season.",
+          "Berseem clover (N-fixing cover/fodder) rebuilds soil nitrogen and organic matter ahead of cotton.",
+          "Wheat closes the rotation on residual moisture and clover nitrogen credit."
+        ],
+        "warnings": [
+          "Berseem clover yields no grain income; factor in fodder value separately."
+        ]
+      }
+    ],
+    "pareto_optimal": [
+      {
+        "rotation": {
+          "Y1_kharif": "mungbean",
+          "Y1_rabi": "wheat",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "chickpea"
+        },
+        "sub_scores": {
+          "water_fit": 78.2,
+          "heat_risk": 70.5,
+          "soil_health": 88.0,
+          "soil_suitability": 81.4
+        },
+        "base_score_0_100": 79.5,
+        "priority_weighted_score_0_100": 82.1,
+        "reasons": [
+          "Not dominated on any sub-score by another candidate \u00e2\u20ac\u201d best or tied-best on soil_health and soil_suitability."
+        ],
+        "warnings": []
+      },
+      {
+        "rotation": {
+          "Y1_kharif": "sorghum",
+          "Y1_rabi": "berseem_clover",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "wheat"
+        },
+        "sub_scores": {
+          "water_fit": 83.0,
+          "heat_risk": 74.1,
+          "soil_health": 85.6,
+          "soil_suitability": 76.9
+        },
+        "base_score_0_100": 79.9,
+        "priority_weighted_score_0_100": 80.7,
+        "reasons": [
+          "Not dominated on any sub-score \u00e2\u20ac\u201d highest water_fit and heat_risk scores in the candidate set."
+        ],
+        "warnings": [
+          "Berseem clover yields no grain income; factor in fodder value separately."
+        ]
+      }
+    ],
+    "source": {
+      "source": "sky_to_soil_rotation_optimizer",
+      "status": "ok",
+      "message": "soil layer data was unavailable; soil_suitability used texture/pH defaults",
+      "cache_hit": false,
+      "fetched_at": "2026-11-14T06:00:00Z"
+    }
+  },
+  "stress_test": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "scenario": {
+      "delta_temp_c": 1.5,
+      "rainfall_change_pct": -15.0
+    },
+    "results": [
+      {
+        "rotation": {
+          "Y1_kharif": "sorghum",
+          "Y1_rabi": "berseem_clover",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "wheat"
+        },
+        "baseline_score_0_100": 79.9,
+        "stressed_score_0_100": 74.6,
+        "score_drop": 5.3,
+        "resilience_score_0_100": 94.7,
+        "reasons": [
+          "Sorghum's drought tolerance limits water_fit loss under -15% rainfall.",
+          "Heat_risk drops the most (cotton boll stage pushed closer to critical temperature) but stays above the moderate-risk threshold."
+        ]
+      },
+      {
+        "rotation": {
+          "Y1_kharif": "mungbean",
+          "Y1_rabi": "wheat",
+          "Y2_kharif": "cotton",
+          "Y2_rabi": "chickpea"
+        },
+        "baseline_score_0_100": 79.5,
+        "stressed_score_0_100": 71.2,
+        "score_drop": 8.3,
+        "resilience_score_0_100": 91.7,
+        "reasons": [
+          "Chickpea's flowering-stage heat sensitivity is the main source of score loss under +1.5C."
+        ]
+      }
+    ],
+    "source": {
+      "source": "sky_to_soil_rotation_optimizer",
+      "status": "ok",
+      "message": null,
+      "cache_hit": false,
+      "fetched_at": "2026-11-14T06:00:00Z"
+    }
+  },
+  "warnings": [
+    "soil: ISRIC SoilGrids returned null for every property at this location; manual soil input recommended.",
+    "rotations: soil_suitability sub-score used texture/pH defaults because soil data was unavailable."
+  ]
+}

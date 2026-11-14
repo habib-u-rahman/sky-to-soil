@@ -1,0 +1,157 @@
+[
+  {
+    "id": "fao56_01",
+    "source": "FAO-56",
+    "statement": "Crop water use (ETc) is estimated as the crop coefficient (Kc) multiplied by reference evapotranspiration (ET0); Kc changes through the initial, development, mid-season, and late-season growth stages."
+  },
+  {
+    "id": "fao56_02",
+    "source": "FAO-56",
+    "statement": "A water deficit is the gap between a crop's total seasonal water need (ETc) and the effective rainfall it actually receives; a positive deficit signals a need for irrigation or a more drought-tolerant crop choice."
+  },
+  {
+    "id": "fao56_03",
+    "source": "FAO-56",
+    "statement": "Reference evapotranspiration (ET0) rises with higher temperature, more sunshine, lower humidity, and stronger wind, so hotter seasons generally raise a crop's water requirement even if rainfall stays the same."
+  },
+  {
+    "id": "fao56_04",
+    "source": "FAO-56",
+    "statement": "Crop water need is highest during the mid-season stage (around flowering and grain-fill), which is also usually when crops are most sensitive to both water shortage and heat stress."
+  },
+  {
+    "id": "fao56_05",
+    "source": "FAO-56",
+    "statement": "Not all rainfall is usable by a crop: a portion runs off or drains below the root zone, so only the 'effective rainfall' fraction should be compared against crop water demand."
+  },
+  {
+    "id": "fao_ca_01",
+    "source": "FAO conservation agriculture",
+    "statement": "Conservation agriculture rests on three linked practices: minimal soil disturbance, permanent soil cover (crop residue or cover crops), and diversified crop rotation."
+  },
+  {
+    "id": "fao_ca_02",
+    "source": "FAO conservation agriculture",
+    "statement": "Keeping crop residue on the soil surface instead of removing or burning it reduces evaporation losses and helps the soil hold more of the rain that does fall."
+  },
+  {
+    "id": "fao_ca_03",
+    "source": "FAO conservation agriculture",
+    "statement": "Minimizing tillage protects soil structure and the fungal and microbial life that holds soil aggregates together, which over time improves water infiltration and reduces erosion."
+  },
+  {
+    "id": "fao_ca_04",
+    "source": "FAO conservation agriculture",
+    "statement": "A permanent soil cover moderates soil temperature extremes at the root zone, which can reduce heat and moisture stress on young seedlings."
+  },
+  {
+    "id": "fao_ca_05",
+    "source": "FAO conservation agriculture",
+    "statement": "Conservation agriculture systems typically take two to three seasons to show their full benefit in soil structure and water-holding capacity, so results build gradually rather than in a single season."
+  },
+  {
+    "id": "legume_n_01",
+    "source": "legume nitrogen fixation",
+    "statement": "Legume crops host rhizobia bacteria in root nodules that convert atmospheric nitrogen into a plant-available form."
+  },
+  {
+    "id": "legume_n_02",
+    "source": "legume nitrogen fixation",
+    "statement": "Nitrogen fixed by a legume is only partly used by the legume itself; the remainder is released into the soil through root turnover and decomposing residue, benefiting the crop planted next."
+  },
+  {
+    "id": "legume_n_03",
+    "source": "legume nitrogen fixation",
+    "statement": "Placing a nitrogen-fixing legume ahead of a heavy nitrogen-feeding cereal or fiber crop in a rotation can reduce that following crop's need for added nitrogen fertilizer."
+  },
+  {
+    "id": "legume_n_04",
+    "source": "legume nitrogen fixation",
+    "statement": "Legumes generally need less supplemental nitrogen than cereals, since much of their own nitrogen demand is met through fixation rather than soil or fertilizer nitrogen."
+  },
+  {
+    "id": "residue_som_01",
+    "source": "crop residue and soil organic matter",
+    "statement": "Returning crop residue to the field instead of removing it is one of the main ways soil organic matter is replenished between seasons."
+  },
+  {
+    "id": "residue_som_02",
+    "source": "crop residue and soil organic matter",
+    "statement": "Higher-residue crops contribute more organic material to the soil than low-residue crops, supporting soil structure and microbial activity over a rotation."
+  },
+  {
+    "id": "residue_som_03",
+    "source": "crop residue and soil organic matter",
+    "statement": "Soil organic matter improves water-holding capacity and nutrient retention, so rotations that build organic matter over time can make a field more resilient to dry spells."
+  },
+  {
+    "id": "residue_som_04",
+    "source": "crop residue and soil organic matter",
+    "statement": "Burning crop residue destroys the organic matter and surface nitrogen it would otherwise return to the soil, and is generally discouraged where a residue-retention alternative is feasible."
+  },
+  {
+    "id": "diversity_pest_01",
+    "source": "crop diversity and pest breaks",
+    "statement": "Growing the same crop or crop family in the same field season after season allows pests, pathogens, and weeds adapted to that crop to build up in the soil and surrounding environment."
+  },
+  {
+    "id": "diversity_pest_02",
+    "source": "crop diversity and pest breaks",
+    "statement": "Rotating between crops from different plant families interrupts the life cycle of many crop-specific pests and soil-borne diseases, because the next crop is not a suitable host."
+  },
+  {
+    "id": "diversity_pest_03",
+    "source": "crop diversity and pest breaks",
+    "statement": "Alternating crops with different rooting depths and growth habits diversifies the soil environment, which can also help suppress single-pest or single-pathogen population buildup."
+  },
+  {
+    "id": "diversity_pest_04",
+    "source": "crop diversity and pest breaks",
+    "statement": "A rotation with at least two or three distinct crop families generally carries lower pest and disease carryover risk than a two-crop rotation that repeats the same family every year."
+  },
+  {
+    "id": "heat_flower_01",
+    "source": "heat stress at flowering",
+    "statement": "Most field crops are most sensitive to high temperature during flowering and early grain- or boll-filling, when heat can reduce pollen viability and cause flower or pod abortion."
+  },
+  {
+    "id": "heat_flower_02",
+    "source": "heat stress at flowering",
+    "statement": "Heat stress during the flowering window can lower the number of grains, pods, or bolls that set, even when the same crop tolerates similar temperatures well at other growth stages."
+  },
+  {
+    "id": "heat_flower_03",
+    "source": "heat stress at flowering",
+    "statement": "Shifting sowing dates earlier or later can move a crop's flowering window away from the historically hottest weeks, reducing the odds that flowering coincides with extreme heat."
+  },
+  {
+    "id": "heat_flower_04",
+    "source": "heat stress at flowering",
+    "statement": "Crops differ in their critical temperature threshold for heat-sensitive stages; a crop with a higher critical temperature tolerates more hot days during flowering before yield-relevant damage occurs."
+  },
+  {
+    "id": "water_saving_01",
+    "source": "water-saving practices",
+    "statement": "Choosing crops and sowing windows that align a crop's highest water-demand stage with the local rainy season reduces how much supplemental irrigation is needed."
+  },
+  {
+    "id": "water_saving_02",
+    "source": "water-saving practices",
+    "statement": "Mulching or retaining crop residue on the surface reduces direct evaporation from bare soil, leaving more of the stored soil moisture available to the crop."
+  },
+  {
+    "id": "water_saving_03",
+    "source": "water-saving practices",
+    "statement": "Drought-tolerant crops generally need less seasonal water than high-water-demand crops, so crop choice itself is one of the main levers for managing a farm's total irrigation need."
+  },
+  {
+    "id": "water_saving_04",
+    "source": "water-saving practices",
+    "statement": "Scheduling irrigation (or relying on rainfall timing) around a crop's known sensitive stages uses available water more efficiently than spreading the same total water evenly across the season."
+  },
+  {
+    "id": "water_saving_05",
+    "source": "water-saving practices",
+    "statement": "Rotating a high-water-demand crop with a lower-water-demand or rain-fed crop the following season can reduce a farm's average irrigation need across a multi-year rotation."
+  }
+]

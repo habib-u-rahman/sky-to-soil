@@ -1,0 +1,21 @@
+{
+  "location": {"lat": 31.42, "lon": 73.08},
+  "period_start": "2023-01-01",
+  "period_end": "2023-02-02",
+  "points": [
+    {"modis_date": "A2023001", "calendar_date": "2023-01-01", "ndvi": 0.1646, "quality_code": 3, "quality_label": "cloudy", "usable": false},
+    {"modis_date": "A2023017", "calendar_date": "2023-01-17", "ndvi": 0.1136, "quality_code": 3, "quality_label": "cloudy", "usable": false},
+    {"modis_date": "A2023033", "calendar_date": "2023-02-02", "ndvi": 0.2458, "quality_code": 0, "quality_label": "good", "usable": true}
+  ],
+  "mean_ndvi_good_quality": 0.2458,
+  "pct_usable": 33.3,
+  "status": "partial",
+  "message": "2 of 3 composites were low quality (cloudy) and excluded from the mean",
+  "source": {
+    "source": "ornl_modis_mod13q1",
+    "status": "ok",
+    "message": null,
+    "cache_hit": false,
+    "fetched_at": "2026-11-14T06:00:00Z"
+  }
+}

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.egg
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Cache
+backend/cache/*
+!backend/cache/.gitkeep
+
+# Test / build artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Node (frontend, built by another session)
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/.vercel/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

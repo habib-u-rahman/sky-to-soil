@@ -1,0 +1,17 @@
+{
+  "location": {"lat": 31.42, "lon": 73.08},
+  "layers": [
+    {"depth": "0-5cm", "phh2o": null, "clay_pct": null, "sand_pct": null, "silt_pct": null, "soc_g_kg": null, "nitrogen_g_kg": null, "cec_cmol_kg": null},
+    {"depth": "5-15cm", "phh2o": null, "clay_pct": null, "sand_pct": null, "silt_pct": null, "soc_g_kg": null, "nitrogen_g_kg": null, "cec_cmol_kg": null},
+    {"depth": "15-30cm", "phh2o": null, "clay_pct": null, "sand_pct": null, "silt_pct": null, "soc_g_kg": null, "nitrogen_g_kg": null, "cec_cmol_kg": null}
+  ],
+  "status": "manual_input_needed",
+  "message": "ISRIC SoilGrids returned HTTP 200 but null values for every property/depth at this location (verified against multiple test points on 2026-11-14) — likely an upstream data outage. Please enter soil values manually.",
+  "source": {
+    "source": "isric_soilgrids",
+    "status": "manual_input_needed",
+    "message": "all properties null from upstream",
+    "cache_hit": false,
+    "fetched_at": "2026-11-14T06:00:00Z"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "location": {"lat": 31.42, "lon": 73.08},
+  "priorities": {"save_water": 0.3, "build_soil": 0.3, "lower_climate_risk": 0.2, "stay_close_to_current": 0.2, "income_proxy": null},
+  "candidates_evaluated": 1764,
+  "top": [
+    {
+      "rotation": {"Y1_kharif": "mungbean", "Y1_rabi": "wheat", "Y2_kharif": "cotton", "Y2_rabi": "chickpea"},
+      "sub_scores": {"water_fit": 78.2, "heat_risk": 70.5, "soil_health": 88.0, "soil_suitability": 81.4},
+      "base_score_0_100": 79.5,
+      "priority_weighted_score_0_100": 82.1,
+      "reasons": [
+        "Mungbean (N-fixing) precedes wheat, adding residual nitrogen ahead of a heavy feeder.",
+        "Four different plant families across the rotation breaks pest/disease cycles.",
+        "Chickpea after cotton gives the soil a second legume break and needs little irrigation.",
+        "Shallow-to-deep rooting alternation (mungbean -> wheat -> cotton -> chickpea) improves soil structure at multiple depths."
+      ],
+      "warnings": []
+    },
+    {
+      "rotation": {"Y1_kharif": "sorghum", "Y1_rabi": "berseem_clover", "Y2_kharif": "cotton", "Y2_rabi": "wheat"},
+      "sub_scores": {"water_fit": 83.0, "heat_risk": 74.1, "soil_health": 85.6, "soil_suitability": 76.9},
+      "base_score_0_100": 79.9,
+      "priority_weighted_score_0_100": 80.7,
+      "reasons": [
+        "Sorghum is markedly drought-tolerant, lowering irrigation need in the hottest season.",
+        "Berseem clover (N-fixing cover/fodder) rebuilds soil nitrogen and organic matter ahead of cotton.",
+        "Wheat closes the rotation on residual moisture and clover nitrogen credit."
+      ],
+      "warnings": ["Berseem clover yields no grain income; factor in fodder value separately."]
+    }
+  ],
+  "pareto_optimal": [
+    {
+      "rotation": {"Y1_kharif": "mungbean", "Y1_rabi": "wheat", "Y2_kharif": "cotton", "Y2_rabi": "chickpea"},
+      "sub_scores": {"water_fit": 78.2, "heat_risk": 70.5, "soil_health": 88.0, "soil_suitability": 81.4},
+      "base_score_0_100": 79.5,
+      "priority_weighted_score_0_100": 82.1,
+      "reasons": [
+        "Not dominated on any sub-score by another candidate — best or tied-best on soil_health and soil_suitability."
+      ],
+      "warnings": []
+    },
+    {
+      "rotation": {"Y1_kharif": "sorghum", "Y1_rabi": "berseem_clover", "Y2_kharif": "cotton", "Y2_rabi": "wheat"},
+      "sub_scores": {"water_fit": 83.0, "heat_risk": 74.1, "soil_health": 85.6, "soil_suitability": 76.9},
+      "base_score_0_100": 79.9,
+      "priority_weighted_score_0_100": 80.7,
+      "reasons": [
+        "Not dominated on any sub-score — highest water_fit and heat_risk scores in the candidate set."
+      ],
+      "warnings": ["Berseem clover yields no grain income; factor in fodder value separately."]
+    }
+  ],
+  "source": {
+    "source": "sky_to_soil_rotation_optimizer",
+    "status": "ok",
+    "message": "soil layer data was unavailable; soil_suitability used texture/pH defaults",
+    "cache_hit": false,
+    "fetched_at": "2026-11-14T06:00:00Z"
+  }
+}

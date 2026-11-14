@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: sky-to-soil-backend
+    runtime: python
+    repo: https://github.com/<your-org>/sky-to-soil
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: EXTRA_CORS_ORIGINS
+        value: ""
+      - key: S2S_DEBUG
+        value: "false"
+    disk:
+      name: sky-to-soil-cache
+      # Native runtime (no Docker WORKDIR): Render checks the repo out to
+      # /opt/render/project/src, and rootDir only changes the build/start
+      # command's working directory -- the absolute path to this app's
+      # cache dir (BACKEND_DIR/cache, see app/core/config.py) is therefore
+      # /opt/render/project/src/backend/cache.
+      mountPath: /opt/render/project/src/backend/cache
+      sizeGB: 1

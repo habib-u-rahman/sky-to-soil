@@ -1,0 +1,139 @@
+{
+  "text": "The suggested rotation keeps wheat (bread wheat) in both Year 1 and Year 2 because it matches the crops you already grow. The rotation scored 54.3 out of 100 overall, with a water‑fit sub‑score of 40.5, heat‑risk of 80.0, soil‑health of 31.6 and soil‑suitability of 65.0, showing it is reasonably suited but will need extra water. Your area’s climate is changing: rabi‑season rainfall has risen from 76.58 mm (baseline) to 125.93 mm (recent), while the average maximum temperature has dropped by 0.849 °C. These trends mean more rain in the winter season but slightly cooler hot days. \nWatch out for the high water deficit of 206.8 mm for wheat and the fact that there are no heat‑stress days, yet the rotation warning notes you will likely need supplemental irrigation and that a fallow season means no crop income. Soil data were not available, so soil‑suitability is based on defaults. \n1. Keep wheat residues on the field instead of removing or burning them to build soil organic matter (see KB source \"crop residue and soil organic matter\" – statements residue_som_01 and residue_som_03). \n2. Plan for irrigation to cover the 206.8 mm water deficit, as a positive deficit signals the need for extra water (FAO‑56). \n3. Since the rotation includes a fallow year, consider planting a cover crop or using the fallow period for soil‑building practices to avoid loss of income and improve soil health (general agronomy practice). \nBefore making any changes, check the plan with your local extension officer.",
+  "technical_note": "The rotation retains wheat in Y1_rabi and Y2_rabi with a base score of 54.3 and priority weighted score of 57.6; sub‑scores are water_fit 40.5, heat_risk 80.0, soil_health 31.6, soil_suitability 65.0. Climate shift data show rabi rainfall increase from 76.58 mm to 125.93 mm and a mean Tmax decrease of 0.849 °C. Wheat’s water_deficit_mm is 206.8 and heat_stress_days is 0, indicating irrigation need (FAO‑56) and low heat risk. Recommendations draw on KB entries residue_som_01, residue_som_03, and FAO‑56.",
+  "language": "en",
+  "verified": true,
+  "issues": [],
+  "rewrites_used": 0,
+  "facts_used": {
+    "location": {
+      "lat": 31.42,
+      "lon": 73.08
+    },
+    "current_crops": [
+      "wheat",
+      "cotton"
+    ],
+    "rotation_crops": {
+      "Y1_rabi": "Wheat (bread wheat)",
+      "Y2_rabi": "Wheat (bread wheat)"
+    },
+    "per_crop": {
+      "wheat": {
+        "name": "Wheat (bread wheat)",
+        "slot": "Y1_rabi",
+        "family": "Poaceae",
+        "n_fixing": false,
+        "residue_contribution": "medium",
+        "data_available": true,
+        "etc_total_mm": 261.7,
+        "total_rainfall_mm": 60.9,
+        "effective_rainfall_mm": 54.95,
+        "water_deficit_mm": 206.8,
+        "heat_stress_days": 0,
+        "heat_window_length_days": 50,
+        "pct_heat_window_days_hot": 0.0,
+        "critical_temp_c": 32
+      }
+    },
+    "rotation_score": {
+      "base_score_0_100": 54.3,
+      "priority_weighted_score_0_100": 57.6,
+      "sub_scores": {
+        "water_fit": 40.5,
+        "heat_risk": 80.0,
+        "soil_health": 31.6,
+        "soil_suitability": 65.0
+      },
+      "reasons": [
+        "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+      ],
+      "warnings": [
+        "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+        "Includes a fallow season with no crop income.",
+        "Soil suitability used default assumptions because local soil data was unavailable."
+      ]
+    },
+    "stress_test": {
+      "data_available": true,
+      "delta_temp_c": 1.5,
+      "rainfall_change_pct": -15.0,
+      "baseline_score_0_100": 54.3,
+      "stressed_score_0_100": 53.8,
+      "score_drop": 0.5,
+      "resilience_score_0_100": 99.5
+    },
+    "soil": {
+      "data_available": false
+    },
+    "climate_shift": {
+      "data_available": true,
+      "baseline_period": "2001-2012",
+      "recent_period": "2013-2025",
+      "mean_tmax_c_baseline": 34.109,
+      "mean_tmax_c_recent": 33.26,
+      "delta_tmax_c": -0.849,
+      "mean_tmin_c_baseline": 19.556,
+      "mean_tmin_c_recent": 19.331,
+      "delta_tmin_c": -0.225,
+      "kharif_rainfall_mm_baseline": 311.09,
+      "kharif_rainfall_mm_recent": 402.12,
+      "rabi_rainfall_mm_baseline": 76.58,
+      "rabi_rainfall_mm_recent": 125.93,
+      "root_zone_wetness_baseline": 0.359,
+      "root_zone_wetness_recent": 0.378,
+      "trends": [
+        {
+          "variable": "annual_mean_tmax_c",
+          "direction": "decreasing",
+          "significant": true,
+          "sen_slope_per_year": -0.06938
+        },
+        {
+          "variable": "annual_mean_tmin_c",
+          "direction": "no trend",
+          "significant": false,
+          "sen_slope_per_year": -0.01383
+        },
+        {
+          "variable": "root_zone_wetness",
+          "direction": "increasing",
+          "significant": true,
+          "sen_slope_per_year": 0.00157
+        },
+        {
+          "variable": "kharif_rainfall_mm",
+          "direction": "increasing",
+          "significant": true,
+          "sen_slope_per_year": 11.33364
+        },
+        {
+          "variable": "rabi_rainfall_mm",
+          "direction": "no trend",
+          "significant": false,
+          "sen_slope_per_year": 1.0305
+        }
+      ]
+    },
+    "data_sources": [
+      {
+        "source": "nasa_power",
+        "status": "ok"
+      },
+      {
+        "source": "isric_soilgrids",
+        "status": "manual_input_needed"
+      },
+      {
+        "source": "sky_to_soil_rotation_optimizer",
+        "status": "ok"
+      }
+    ]
+  },
+  "kb_sources": [
+    "FAO-56",
+    "crop residue and soil organic matter",
+    "legume nitrogen fixation"
+  ],
+  "model_used": "openai/gpt-oss-120b"
+}
