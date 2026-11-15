@@ -9,7 +9,6 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground sm:px-6 lg:px-8">
         <p>{t("landing.footerTagline")}</p>
         <p>{t("common.poweredBy")}</p>
-        <p className="max-w-3xl text-xs text-muted-foreground/80">{t("common.aiDisclosure")}</p>
       </div>
     </footer>
   );

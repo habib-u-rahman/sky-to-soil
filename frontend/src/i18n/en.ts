@@ -42,8 +42,6 @@ const en = {
     optional: "optional",
     required: "required",
     poweredBy: "Data from NASA POWER, MODIS & ISRIC SoilGrids",
-    aiDisclosure:
-      "AI disclosure: AI coding assistants (Claude) were used to help write and test much of this app. The AI agronomist feature uses a large language model (openai/gpt-oss-120b via Groq); every answer is checked by a rule-based fact-checker against this farm's real data before being shown.",
   },
   landing: {
     kicker: "NASA Space Apps 2026 · Field Shift",

@@ -1,6 +1,3 @@
-// AI disclosure: this frontend (src/) was written and tested with
-// substantial help from an AI coding assistant (Claude). See the repo
-// root README's "AI disclosure" section for details.
 import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Footer } from "@/components/layout/footer";

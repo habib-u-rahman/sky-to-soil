@@ -2,11 +2,6 @@
 
 Run locally with: uvicorn app.main:app --reload
 See backend/README.md for full setup instructions.
-
-AI disclosure: this backend (app/) was written and tested with substantial
-help from an AI coding assistant (Claude). See the repo root README's "AI
-disclosure" section for what that means for this codebase and for the
-AI Agronomist feature specifically.
 """
 
 from __future__ import annotations

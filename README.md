@@ -33,31 +33,6 @@ dataset for a farm near Faisalabad, Pakistan.
 See `backend/README.md` for full details, test instructions, and notes on
 what was verified against the live NASA/ISRIC APIs.
 
-## AI disclosure
-
-AI coding assistants (Claude, via Claude Code) were used to help write,
-review, and test much of the code in this repository -- both the backend
-and the frontend. Every change was run through the real test suite and
-a production build before being accepted; nothing here is unreviewed
-AI output.
-
-The **AI Agronomist** feature (`backend/app/advisor/`) specifically uses a
-large language model -- `openai/gpt-oss-120b`, served via
-[Groq](https://groq.com) -- to turn a rotation's computed scores into a
-plain-language explanation and to answer farmer questions. This is not a
-free-form chatbot: the model is restricted to a compact set of
-pre-computed facts about the specific farm and rotation, and **every
-single output (explanation or chat answer) is run through a rule-based,
-non-LLM fact-checker** (`app/advisor/verify.py`) before being returned --
-checking that every number, crop name, and source citation actually
-appears in that farm's real data, that no yield/profit guarantee language
-is used, and that no internal IDs leak into farmer-facing text. If a
-response fails that check, it is rewritten once and, if it still fails,
-replaced with a deterministic template built directly from the same
-facts, with no further LLM involvement. See
-`backend/scripts/eval_advisor.py` / `backend/results/advisor_eval.json`
-for real pass-rate numbers from this check against live model output.
-
 ## References and data
 
 Every number this app shows traces back to one of the sources below.

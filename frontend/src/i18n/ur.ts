@@ -44,8 +44,6 @@ const ur: Dictionary = {
     optional: "اختیاری",
     required: "لازمی",
     poweredBy: "NASA POWER، MODIS اور ISRIC SoilGrids کا ڈیٹا",
-    aiDisclosure:
-      "AI کا انکشاف: اس ایپ کا زیادہ تر کوڈ لکھنے اور جانچنے میں AI کوڈنگ اسسٹنٹس (Claude) استعمال کیے گئے۔ AI زرعی ماہر کی خصوصیت ایک بڑے لینگویج ماڈل (Groq کے ذریعے openai/gpt-oss-120b) کا استعمال کرتی ہے؛ دکھانے سے پہلے ہر جواب اس فارم کے حقیقی ڈیٹا کے خلاف ایک اصول پر مبنی حقائق کی جانچ سے گزرتا ہے۔",
   },
   landing: {
     kicker: "NASA Space Apps 2026 · Field Shift",
