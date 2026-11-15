@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useI18n } from "@/i18n";
 import { useFarmAnalysis } from "@/hooks/use-farm-analysis";
-import { useFarmStore } from "@/lib/farm-store";
+import { allCurrentCrops, useFarmStore } from "@/lib/farm-store";
 
 export function DashboardContent() {
   const { t } = useI18n();
@@ -24,6 +24,7 @@ export function DashboardContent() {
   const searchParams = useSearchParams();
   const loadDemoFarm = useFarmStore((s) => s.loadDemoFarm);
   const hasLocation = useFarmStore((s) => !!s.location);
+  const currentCrops = useFarmStore((s) => s.currentCrops);
 
   useEffect(() => {
     if (searchParams.get("demo") === "true" && !hasLocation) {
@@ -32,7 +33,7 @@ export function DashboardContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { data, status, error, hasFarm, retry } = useFarmAnalysis();
+  const { data, status, error, hasFarm, retry, isDemo } = useFarmAnalysis();
 
   if (!hasFarm && status !== "loading") {
     return (
@@ -59,7 +60,7 @@ export function DashboardContent() {
             <Pencil className="h-3.5 w-3.5" />
             {t("dashboard.editFarm")}
           </Button>
-          {data && <ExportButton data={data} />}
+          {data && <ExportButton data={data} currentCrops={allCurrentCrops(currentCrops)} isDemo={isDemo} />}
           <Button size="sm" render={<Link href="/rotations" />} className="gap-1.5">
             {t("dashboard.viewRotations")}
             <ArrowRight className="h-3.5 w-3.5" />
