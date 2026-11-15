@@ -84,6 +84,9 @@ async def get_soil_profile(lat: float, lon: float) -> dict:
     }
 
 
+NDVI_MULTI_YEAR_START = "2018-01-01"
+
+
 async def get_ndvi_summary(lat: float, lon: float, start_date: str | None = None, end_date: str | None = None) -> dict:
     if end_date is None:
         # ORNL's MOD13Q1 processing lag can run well beyond a month, so a
@@ -91,7 +94,12 @@ async def get_ndvi_summary(lat: float, lon: float, start_date: str | None = None
         # back is a safer default when the caller doesn't pin exact dates.
         end_date = (dt.datetime.utcnow().date() - dt.timedelta(days=120)).isoformat()
     if start_date is None:
-        start_date = (dt.date.fromisoformat(end_date) - dt.timedelta(days=730)).isoformat()
+        # Default to multi-year history (2018-latest), not just 2 years, so
+        # the dashboard's year-over-year view has enough seasons to show the
+        # double-cropping pattern. fetch_ndvi_timeseries already chunks any
+        # window into <=150-day requests run concurrently, so this is a
+        # bigger fetch, not a slower per-request one.
+        start_date = NDVI_MULTI_YEAR_START
 
     ndvi = await fetch_ndvi_timeseries(lat, lon, start_date, end_date)
     if not ndvi["ok"]:

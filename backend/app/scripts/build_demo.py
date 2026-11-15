@@ -1,6 +1,6 @@
 """Pre-fetches a full farm analysis for the demo farm near Faisalabad,
-Pakistan (31.42 N, 73.08 E) and freezes it to app/data/demo_analysis.json so
-`?demo=true` works with zero network access.
+Pakistan (31.3053 N, 73.2144 E) and freezes it to app/data/demo_analysis.json
+so `?demo=true` works with zero network access.
 
 Run with:  python -m app.scripts.build_demo
 """
@@ -14,10 +14,14 @@ from app import services
 from app.advisor import facts as advisor_facts
 from app.advisor.graph import run_chat, run_explain
 from app.core.demo import DEMO_FILE, DEMO_LOCATION
-from app.core.sources import now_iso
+from app.core.sources import now_iso, source_meta
 from app.data.crop_repo import crops_by_id, load_crops
+from app.routers.soil import SOIL_PRESETS
 from app.science.climatology import build_doy_climatology
 from app.science.rotation_engine import score_all_rotations, stress_test_rotations
+
+DEMO_SOIL_FALLBACK_TEXTURE = "loam"
+DEMO_SOIL_DEPTHS = ["0-5cm", "5-15cm", "15-30cm"]
 
 DEMO_PRIORITIES = {
     "save_water": 0.3,
@@ -100,19 +104,47 @@ async def main():
     print("Fetching soil from ISRIC SoilGrids...")
     soil = await services.get_soil_profile(lat, lon)
     soil["location"] = {"lat": lat, "lon": lon}
-    if soil["status"] != "ok":
-        warnings.append(f"soil: {soil['message']}")
     print(" ", soil["status"])
+    if soil["status"] != "ok":
+        # SoilGrids has no usable data at this point. Rather than leave the
+        # demo dashboard with an empty soil table and a "Partial data"
+        # warning, fill it from the "loam" soil-type preset -- the same
+        # preset a real farmer would pick in the setup wizard's "Choose
+        # your soil type" picker -- and label it clearly as estimated
+        # rather than measured, instead of pretending it's satellite data.
+        print(f"  (SoilGrids unavailable: {soil['message']!r} -- filling with the '{DEMO_SOIL_FALLBACK_TEXTURE}' preset)")
+        preset = next(p for p in SOIL_PRESETS if p["texture"] == DEMO_SOIL_FALLBACK_TEXTURE)
+        soil = {
+            "location": {"lat": lat, "lon": lon},
+            "layers": [
+                {
+                    "depth": depth,
+                    "phh2o": preset["phh2o"],
+                    "clay_pct": preset["clay_pct"],
+                    "sand_pct": preset["sand_pct"],
+                    "silt_pct": preset["silt_pct"],
+                    "soc_g_kg": preset["soc_g_kg"],
+                    "nitrogen_g_kg": preset["nitrogen_g_kg"],
+                    "cec_cmol_kg": preset["cec_cmol_kg"],
+                }
+                for depth in DEMO_SOIL_DEPTHS
+            ],
+            "status": "ok",
+            "message": f"Estimated from the '{DEMO_SOIL_FALLBACK_TEXTURE}' soil-type preset (ISRIC SoilGrids had no data at this exact point).",
+            "source": source_meta("usda_fao_texture_class_typical_values", "ok", None, False),
+        }
 
-    print("Fetching NDVI from ORNL DAAC MODIS...")
-    # Pin to a known-good historical window rather than the "now minus N
-    # days" default: this sandbox's system clock reads 2026-11-14, well
-    # ahead of what the real MOD13Q1 archive has actually processed, so a
-    # "recent" relative window 400s. 2022-2023 is confirmed available (see
-    # the live verification in modis_client.py's module docstring).
-    ndvi = await services.get_ndvi_summary(lat, lon, start_date="2022-01-01", end_date="2023-12-31")
+    print("Fetching NDVI from ORNL DAAC MODIS (2018-latest, chunked)...")
+    # No explicit dates: services.get_ndvi_summary's own defaults already
+    # cover 2018-01-01 through "today minus 120 days" (ORNL's processing
+    # lag margin), which is exactly the multi-year history the dashboard's
+    # year-over-year chart needs, chunked automatically by fetch_ndvi_timeseries.
+    ndvi = await services.get_ndvi_summary(lat, lon)
     ndvi["location"] = {"lat": lat, "lon": lon}
-    if ndvi["status"] != "ok":
+    # "partial" just means some composites were cloud/snow-filtered out of
+    # the mean -- normal for any real location, not a failure worth a
+    # dashboard warning. Only a genuinely unusable fetch should warn.
+    if ndvi["status"] not in ("ok", "partial"):
         warnings.append(f"ndvi: {ndvi.get('message') or ndvi['status']}")
     print(" ", ndvi["status"], "-", len(ndvi["points"]), "points")
 

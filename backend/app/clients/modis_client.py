@@ -50,6 +50,14 @@ USABLE_QUALITY_CODES = {0, 1}
 # (160 days); chunk requests to stay safely under that.
 MAX_CHUNK_DAYS = 150
 
+# Firing every chunk's NDVI+QA band pair fully concurrently works fine for
+# a 1-2 year window (a handful of chunks), but a multi-year (2018-latest)
+# fetch is ~20 chunks x 2 bands = 40 simultaneous requests -- verified live
+# that this reliably trips ORNL's rate limiting (bursts of 503 Service
+# Unavailable). Capping in-flight chunks keeps the chunking's benefit
+# (still far faster than one-at-a-time) without the burst.
+MAX_CONCURRENT_CHUNKS = 4
+
 
 def _to_modis_date(calendar_date: str) -> str:
     """'2023-01-17' -> 'A2023017'."""
@@ -100,23 +108,32 @@ async def fetch_ndvi_timeseries(lat: float, lon: float, start_date: str, end_dat
         return cached
 
     chunks = _chunk_date_range(start_date, end_date)
+    semaphore = asyncio.Semaphore(MAX_CONCURRENT_CHUNKS)
 
     async def fetch_chunk(chunk_start: str, chunk_end: str):
         start_modis = _to_modis_date(chunk_start)
         end_modis = _to_modis_date(chunk_end)
-        # Fetch the NDVI and quality bands concurrently -- ORNL's web service
-        # can take tens of seconds per band request on this network, and the
-        # two bands are independent, so doing them sequentially roughly
-        # doubles the wait for no reason.
-        return await asyncio.gather(
-            _fetch_band(lat, lon, NDVI_BAND, start_modis, end_modis),
-            _fetch_band(lat, lon, QUALITY_BAND, start_modis, end_modis),
-        )
+        async with semaphore:
+            # Fetch the NDVI and quality bands concurrently -- ORNL's web
+            # service can take tens of seconds per band request on this
+            # network, and the two bands are independent, so doing them
+            # sequentially roughly doubles the wait for no reason. The
+            # semaphore above caps how many CHUNKS (pairs of these) run at
+            # once across the whole fetch.
+            try:
+                return await asyncio.gather(
+                    _fetch_band(lat, lon, NDVI_BAND, start_modis, end_modis),
+                    _fetch_band(lat, lon, QUALITY_BAND, start_modis, end_modis),
+                )
+            except UpstreamError:
+                # A single chunk failing (e.g. one transient 503) shouldn't
+                # zero out a multi-year fetch spanning ~20 chunks -- skip
+                # just this window and keep the rest.
+                return None
 
-    try:
-        chunk_results = await asyncio.gather(*(fetch_chunk(s, e) for s, e in chunks))
-    except UpstreamError as exc:
-        return {"ok": False, "error": str(exc), "cache_hit": False}
+    chunk_results = [r for r in await asyncio.gather(*(fetch_chunk(s, e) for s, e in chunks)) if r is not None]
+    if not chunk_results:
+        return {"ok": False, "error": "every chunk in this date range failed", "cache_hit": False}
 
     points_by_date: dict[str, dict] = {}
     for ndvi_raw, qa_raw in chunk_results:
