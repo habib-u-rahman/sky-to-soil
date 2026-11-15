@@ -1,9 +1,21 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Map as MapLibreMap, Marker, NavigationControl } from "maplibre-gl";
+import { Map as MapLibreMap, Marker, NavigationControl, setWorkerUrl } from "maplibre-gl";
 import { useEffect, useRef } from "react";
 import type { Location } from "@/types/api";
+
+// MapLibre auto-derives its worker script's URL from import.meta.url, and
+// silently falls back to an empty string whenever that doesn't look like a
+// real http(s) URL -- which it doesn't under Next.js/Turbopack's module
+// wrapping, causing "Worker failed to load. Check that the worker URL is
+// correct." with no map tiles ever rendering. public/maplibre-gl-worker.mjs
+// is the exact matching worker bundle, copied out of node_modules on every
+// `npm install` (see scripts/copy-maplibre-worker.js) and served as a plain
+// static asset, so this URL always resolves correctly client-side.
+if (typeof window !== "undefined") {
+  setWorkerUrl("/maplibre-gl-worker.mjs");
+}
 
 interface MapPickerProps {
   value: Location | null;

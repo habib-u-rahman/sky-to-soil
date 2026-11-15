@@ -40,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Copied out of node_modules by scripts/copy-maplibre-worker.js on every
+# `npm install` (via postinstall) -- regenerated, not source, and must stay
+# in sync with whatever maplibre-gl version is actually installed.
+/public/maplibre-gl-worker.mjs

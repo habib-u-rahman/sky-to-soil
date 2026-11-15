@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static assets (including the maplibre-gl worker bundle copied in by
+    // scripts/copy-maplibre-worker.js -- third-party minified code, not
+    // something we should lint) and plain Node build scripts.
+    "public/**",
+    "scripts/**",
   ]),
 ]);
 
