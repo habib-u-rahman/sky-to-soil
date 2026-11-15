@@ -2,7 +2,8 @@ services:
   - type: web
     name: sky-to-soil-backend
     runtime: python
-    repo: https://github.com/<your-org>/sky-to-soil
+    # No `repo:` field here -- Render infers it from whichever GitHub repo
+    # you connect this Blueprint to (New + -> Blueprint -> pick your repo).
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -11,9 +12,11 @@ services:
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
-        value: "3.11.9"
+        value: "3.13.3"
       - key: GROQ_API_KEY
         sync: false
+      # Comma-separated list of extra allowed CORS origins, e.g. your
+      # deployed Vercel URL(s): "https://your-app.vercel.app,https://your-custom-domain.com"
       - key: EXTRA_CORS_ORIGINS
         value: ""
       - key: S2S_DEBUG
