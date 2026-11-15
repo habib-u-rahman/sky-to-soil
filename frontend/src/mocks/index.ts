@@ -14,6 +14,7 @@ import type {
   NdviSummaryResponse,
   RotationsScoreResponse,
   RotationsStressTestResponse,
+  SoilPresetsResponse,
   SoilProfileResponse,
 } from "@/types/api";
 import demoAnalysisRaw from "./demo_analysis.json";
@@ -45,4 +46,23 @@ export const mockStressTest: RotationsStressTestResponse =
 export const mockCrops: CropsListResponse = {
   crops,
   count: crops.length,
+};
+
+// Mirrors backend/app/routers/soil.py's SOIL_PRESETS table.
+export const mockSoilPresets: SoilPresetsResponse = {
+  presets: [
+    { texture: "sand", phh2o: 6.5, clay_pct: 5.0, sand_pct: 88.0, silt_pct: 7.0, soc_g_kg: 5.0, nitrogen_g_kg: 0.3, cec_cmol_kg: 5.0 },
+    { texture: "sandy_loam", phh2o: 6.5, clay_pct: 12.0, sand_pct: 63.0, silt_pct: 25.0, soc_g_kg: 8.0, nitrogen_g_kg: 0.5, cec_cmol_kg: 9.0 },
+    { texture: "loam", phh2o: 6.8, clay_pct: 20.0, sand_pct: 40.0, silt_pct: 40.0, soc_g_kg: 15.0, nitrogen_g_kg: 1.0, cec_cmol_kg: 16.0 },
+    { texture: "silt_loam", phh2o: 6.8, clay_pct: 15.0, sand_pct: 20.0, silt_pct: 65.0, soc_g_kg: 15.0, nitrogen_g_kg: 1.0, cec_cmol_kg: 17.0 },
+    { texture: "clay_loam", phh2o: 7.0, clay_pct: 32.0, sand_pct: 30.0, silt_pct: 38.0, soc_g_kg: 18.0, nitrogen_g_kg: 1.2, cec_cmol_kg: 25.0 },
+    { texture: "clay", phh2o: 7.2, clay_pct: 50.0, sand_pct: 20.0, silt_pct: 30.0, soc_g_kg: 20.0, nitrogen_g_kg: 1.3, cec_cmol_kg: 35.0 },
+  ],
+  source: {
+    source: "usda_fao_texture_class_typical_values",
+    status: "ok",
+    message: "Approximate midpoints per USDA-NRCS soil texture class definitions.",
+    cache_hit: false,
+    fetched_at: null,
+  },
 };

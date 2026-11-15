@@ -12,21 +12,23 @@ export function useFarmAnalysis() {
   const currentCrops = useFarmStore((s) => s.currentCrops);
   const priorities = useFarmStore((s) => s.priorities);
   const setupComplete = useFarmStore((s) => s.setupComplete);
+  const isDemo = useFarmStore((s) => s.isDemo);
 
   const { data, status, error, load } = useFarmAnalysisStore();
 
   useEffect(() => {
     if (location) {
-      void load(location, currentCrops, priorities);
+      void load(location, currentCrops, priorities, isDemo);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location?.lat, location?.lon, JSON.stringify(currentCrops), JSON.stringify(priorities)]);
+  }, [location?.lat, location?.lon, JSON.stringify(currentCrops), JSON.stringify(priorities), isDemo]);
 
   return {
     data,
     status,
     error,
+    isDemo,
     hasFarm: setupComplete && !!location,
-    retry: () => location && load(location, currentCrops, priorities),
+    retry: () => location && load(location, currentCrops, priorities, isDemo),
   };
 }

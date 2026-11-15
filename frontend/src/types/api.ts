@@ -304,3 +304,91 @@ export const DEFAULT_PRIORITIES: Priorities = {
   stay_close_to_current: 0.25,
   income_proxy: null,
 };
+
+// ---------------------------------------------------------------------------
+// AI Agronomist advisor (/advisor/explain, /advisor/chat)
+// ---------------------------------------------------------------------------
+
+export type AdvisorLanguage = "en" | "ur";
+
+/** "top_0" | "pareto_0" | ... -- index into FarmAnalyzeResponse.rotations.top
+ * or .pareto_optimal, exactly as the backend resolves it. */
+export type RotationId = string;
+
+export interface AdvisorExplainRequest {
+  analysis?: FarmAnalyzeResponse | null;
+  rotation_id: RotationId;
+  current_crops: string[];
+  language: AdvisorLanguage;
+}
+
+export interface AdvisorExplainResponse {
+  text: string;
+  technical_note: string;
+  language: AdvisorLanguage;
+  verified: boolean;
+  issues: string[];
+  rewrites_used: number;
+  facts_used: Record<string, unknown>;
+  kb_sources: string[];
+  model_used: string;
+}
+
+export interface AdvisorChatRequest {
+  analysis?: FarmAnalyzeResponse | null;
+  rotation_id?: RotationId;
+  current_crops: string[];
+  question: string;
+  language: AdvisorLanguage;
+}
+
+export interface AdvisorChatResponse {
+  answer: string;
+  language: AdvisorLanguage;
+  verified: boolean;
+  issues: string[];
+  answerable: boolean;
+  rewrites_used: number;
+  facts_used: Record<string, unknown>;
+  kb_sources: string[];
+  model_used: string;
+}
+
+export interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+  response?: AdvisorChatResponse;
+}
+
+// ---------------------------------------------------------------------------
+// Soil presets (/soil/presets)
+// ---------------------------------------------------------------------------
+
+export type SoilTexture = "sand" | "sandy_loam" | "loam" | "silt_loam" | "clay_loam" | "clay";
+
+export interface SoilPreset {
+  texture: SoilTexture;
+  phh2o: number;
+  clay_pct: number;
+  sand_pct: number;
+  silt_pct: number;
+  soc_g_kg: number;
+  nitrogen_g_kg: number;
+  cec_cmol_kg: number;
+}
+
+export interface SoilPresetsResponse {
+  presets: SoilPreset[];
+  source: SourceMeta;
+}
+
+// ---------------------------------------------------------------------------
+// PDF report (/report/pdf)
+// ---------------------------------------------------------------------------
+
+export interface ReportPdfRequest {
+  analysis?: FarmAnalyzeResponse | null;
+  current_crops: string[];
+  language: AdvisorLanguage;
+  top_n?: number;
+}

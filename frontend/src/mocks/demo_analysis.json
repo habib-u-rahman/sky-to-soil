@@ -3,7 +3,7 @@
     "lat": 31.42,
     "lon": 73.08
   },
-  "generated_at": "2026-11-14T06:59:18Z",
+  "generated_at": "2026-11-14T09:04:24Z",
   "climate": {
     "baseline": {
       "period_label": "2001-2012",
@@ -108,7 +108,7 @@
       "status": "ok",
       "message": null,
       "cache_hit": true,
-      "fetched_at": "2026-11-14T06:58:33Z"
+      "fetched_at": "2026-11-14T09:00:10Z"
     },
     "location": {
       "lat": 31.42,
@@ -155,7 +155,7 @@
       "status": "manual_input_needed",
       "message": "all properties null from upstream",
       "cache_hit": true,
-      "fetched_at": "2026-11-14T06:58:33Z"
+      "fetched_at": "2026-11-14T09:00:10Z"
     },
     "location": {
       "lat": 31.42,
@@ -543,8 +543,8 @@
       "source": "ornl_modis_mod13q1",
       "status": "ok",
       "message": null,
-      "cache_hit": false,
-      "fetched_at": "2026-11-14T06:59:18Z"
+      "cache_hit": true,
+      "fetched_at": "2026-11-14T09:00:10Z"
     },
     "location": {
       "lat": 31.42,
@@ -2360,7 +2360,7 @@
       "status": "partial",
       "message": "soil: ISRIC SoilGrids returned HTTP 200 but null values for every property/depth at this location. This looks like an upstream data outage rather than a request error (verified against multiple real-world test points). Please enter soil values manually.; ndvi: 6 of 46 composites were low quality and excluded from the mean",
       "cache_hit": false,
-      "fetched_at": "2026-11-14T06:59:18Z"
+      "fetched_at": "2026-11-14T09:00:10Z"
     }
   },
   "stress_test": {
@@ -2530,8 +2530,1878 @@
       "status": "partial",
       "message": "soil: ISRIC SoilGrids returned HTTP 200 but null values for every property/depth at this location. This looks like an upstream data outage rather than a request error (verified against multiple real-world test points). Please enter soil values manually.; ndvi: 6 of 46 composites were low quality and excluded from the mean",
       "cache_hit": false,
-      "fetched_at": "2026-11-14T06:59:18Z"
+      "fetched_at": "2026-11-14T09:00:10Z"
     }
+  },
+  "advisor_crop_detail": {
+    "wheat": {
+      "data_available": true,
+      "etc_total_mm": 261.7,
+      "total_rainfall_mm": 60.9,
+      "effective_rainfall_mm": 54.95,
+      "water_deficit_mm": 206.8,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 50,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 32
+    },
+    "rice": {
+      "data_available": true,
+      "etc_total_mm": 919.8,
+      "total_rainfall_mm": 374.1,
+      "effective_rainfall_mm": 162.41,
+      "water_deficit_mm": 757.4,
+      "heat_stress_days": 45,
+      "heat_window_length_days": 45,
+      "pct_heat_window_days_hot": 100.0,
+      "critical_temp_c": 35
+    },
+    "maize": {
+      "data_available": true,
+      "etc_total_mm": 659.6,
+      "total_rainfall_mm": 350.9,
+      "effective_rainfall_mm": 160.09,
+      "water_deficit_mm": 499.5,
+      "heat_stress_days": 40,
+      "heat_window_length_days": 40,
+      "pct_heat_window_days_hot": 100.0,
+      "critical_temp_c": 35
+    },
+    "cotton": {
+      "data_available": true,
+      "etc_total_mm": 888.2,
+      "total_rainfall_mm": 403.4,
+      "effective_rainfall_mm": 165.34,
+      "water_deficit_mm": 722.9,
+      "heat_stress_days": 52,
+      "heat_window_length_days": 55,
+      "pct_heat_window_days_hot": 94.5,
+      "critical_temp_c": 38
+    },
+    "sugarcane": {
+      "data_available": true,
+      "etc_total_mm": 1954.1,
+      "total_rainfall_mm": 537.7,
+      "effective_rainfall_mm": 178.77,
+      "water_deficit_mm": 1775.3,
+      "heat_stress_days": 13,
+      "heat_window_length_days": 60,
+      "pct_heat_window_days_hot": 21.7,
+      "critical_temp_c": 38
+    },
+    "chickpea": {
+      "data_available": true,
+      "etc_total_mm": 226.8,
+      "total_rainfall_mm": 54.9,
+      "effective_rainfall_mm": 50.11,
+      "water_deficit_mm": 176.7,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 45,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 32
+    },
+    "lentil": {
+      "data_available": true,
+      "etc_total_mm": 210.8,
+      "total_rainfall_mm": 51.1,
+      "effective_rainfall_mm": 46.9,
+      "water_deficit_mm": 163.9,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 40,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 30
+    },
+    "mungbean": {
+      "data_available": true,
+      "etc_total_mm": 301.6,
+      "total_rainfall_mm": 254.7,
+      "effective_rainfall_mm": 150.47,
+      "water_deficit_mm": 151.1,
+      "heat_stress_days": 18,
+      "heat_window_length_days": 20,
+      "pct_heat_window_days_hot": 90.0,
+      "critical_temp_c": 38
+    },
+    "sorghum": {
+      "data_available": true,
+      "etc_total_mm": 488.4,
+      "total_rainfall_mm": 350.3,
+      "effective_rainfall_mm": 160.03,
+      "water_deficit_mm": 328.4,
+      "heat_stress_days": 1,
+      "heat_window_length_days": 35,
+      "pct_heat_window_days_hot": 2.9,
+      "critical_temp_c": 40
+    },
+    "pearl_millet": {
+      "data_available": true,
+      "etc_total_mm": 395.7,
+      "total_rainfall_mm": 328.0,
+      "effective_rainfall_mm": 157.8,
+      "water_deficit_mm": 237.9,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 30,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 42
+    },
+    "mustard": {
+      "data_available": true,
+      "etc_total_mm": 230.3,
+      "total_rainfall_mm": 49.0,
+      "effective_rainfall_mm": 45.13,
+      "water_deficit_mm": 185.2,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 35,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 30
+    },
+    "potato": {
+      "data_available": true,
+      "etc_total_mm": 227.3,
+      "total_rainfall_mm": 46.9,
+      "effective_rainfall_mm": 43.36,
+      "water_deficit_mm": 183.9,
+      "heat_stress_days": 1,
+      "heat_window_length_days": 30,
+      "pct_heat_window_days_hot": 3.3,
+      "critical_temp_c": 29
+    },
+    "berseem_clover": {
+      "data_available": true,
+      "etc_total_mm": 363.6,
+      "total_rainfall_mm": 87.1,
+      "effective_rainfall_mm": 74.98,
+      "water_deficit_mm": 288.6,
+      "heat_stress_days": 0,
+      "heat_window_length_days": 70,
+      "pct_heat_window_days_hot": 0.0,
+      "critical_temp_c": 32
+    },
+    "soybean": {
+      "data_available": true,
+      "etc_total_mm": 592.0,
+      "total_rainfall_mm": 350.3,
+      "effective_rainfall_mm": 160.03,
+      "water_deficit_mm": 431.9,
+      "heat_stress_days": 45,
+      "heat_window_length_days": 45,
+      "pct_heat_window_days_hot": 100.0,
+      "critical_temp_c": 35
+    }
+  },
+  "advisor_explain": {
+    "top_0": {
+      "en": {
+        "text": "The suggested rotation keeps wheat (bread wheat) in both Year\u202f1 and Year\u202f2 because it matches the crops you already grow. The rotation scored 54.3 out of 100 overall, with a water\u2011fit sub\u2011score of 40.5, heat\u2011risk of 80.0, soil\u2011health of 31.6 and soil\u2011suitability of 65.0, showing it is reasonably suited but will need extra water. Your area\u2019s climate is changing: rabi\u2011season rainfall has risen from 76.58\u202fmm (baseline) to 125.93\u202fmm (recent), while the average maximum temperature has dropped by 0.849\u202f\u00b0C. These trends mean more rain in the winter season but slightly cooler hot days. \nWatch out for the high water deficit of 206.8\u202fmm for wheat and the fact that there are no heat\u2011stress days, yet the rotation warning notes you will likely need supplemental irrigation and that a fallow season means no crop income. Soil data were not available, so soil\u2011suitability is based on defaults. \n1. Keep wheat residues on the field instead of removing or burning them to build soil organic matter (see KB source \"crop residue and soil organic matter\" \u2013 statements residue_som_01 and residue_som_03). \n2. Plan for irrigation to cover the 206.8\u202fmm water deficit, as a positive deficit signals the need for extra water (FAO\u201156). \n3. Since the rotation includes a fallow year, consider planting a cover crop or using the fallow period for soil\u2011building practices to avoid loss of income and improve soil health (general agronomy practice). \nBefore making any changes, check the plan with your local extension officer.",
+        "technical_note": "The rotation retains wheat in Y1_rabi and Y2_rabi with a base score of 54.3 and priority weighted score of 57.6; sub\u2011scores are water_fit 40.5, heat_risk 80.0, soil_health 31.6, soil_suitability 65.0. Climate shift data show rabi rainfall increase from 76.58\u202fmm to 125.93\u202fmm and a mean Tmax decrease of 0.849\u202f\u00b0C. Wheat\u2019s water_deficit_mm is 206.8 and heat_stress_days is 0, indicating irrigation need (FAO\u201156) and low heat risk. Recommendations draw on KB entries residue_som_01, residue_som_03, and FAO\u201156.",
+        "language": "en",
+        "verified": true,
+        "issues": [],
+        "rewrites_used": 0,
+        "facts_used": {
+          "location": {
+            "lat": 31.42,
+            "lon": 73.08
+          },
+          "current_crops": [
+            "wheat",
+            "cotton"
+          ],
+          "rotation_crops": {
+            "Y1_rabi": "Wheat (bread wheat)",
+            "Y2_rabi": "Wheat (bread wheat)"
+          },
+          "per_crop": {
+            "wheat": {
+              "name": "Wheat (bread wheat)",
+              "slot": "Y1_rabi",
+              "family": "Poaceae",
+              "n_fixing": false,
+              "residue_contribution": "medium",
+              "data_available": true,
+              "etc_total_mm": 261.7,
+              "total_rainfall_mm": 60.9,
+              "effective_rainfall_mm": 54.95,
+              "water_deficit_mm": 206.8,
+              "heat_stress_days": 0,
+              "heat_window_length_days": 50,
+              "pct_heat_window_days_hot": 0.0,
+              "critical_temp_c": 32
+            }
+          },
+          "rotation_score": {
+            "base_score_0_100": 54.3,
+            "priority_weighted_score_0_100": 57.6,
+            "sub_scores": {
+              "water_fit": 40.5,
+              "heat_risk": 80.0,
+              "soil_health": 31.6,
+              "soil_suitability": 65.0
+            },
+            "reasons": [
+              "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+            ],
+            "warnings": [
+              "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+              "Includes a fallow season with no crop income.",
+              "Soil suitability used default assumptions because local soil data was unavailable."
+            ]
+          },
+          "stress_test": {
+            "data_available": true,
+            "delta_temp_c": 1.5,
+            "rainfall_change_pct": -15.0,
+            "baseline_score_0_100": 54.3,
+            "stressed_score_0_100": 53.8,
+            "score_drop": 0.5,
+            "resilience_score_0_100": 99.5
+          },
+          "soil": {
+            "data_available": false
+          },
+          "climate_shift": {
+            "data_available": true,
+            "baseline_period": "2001-2012",
+            "recent_period": "2013-2025",
+            "mean_tmax_c_baseline": 34.109,
+            "mean_tmax_c_recent": 33.26,
+            "delta_tmax_c": -0.849,
+            "mean_tmin_c_baseline": 19.556,
+            "mean_tmin_c_recent": 19.331,
+            "delta_tmin_c": -0.225,
+            "kharif_rainfall_mm_baseline": 311.09,
+            "kharif_rainfall_mm_recent": 402.12,
+            "rabi_rainfall_mm_baseline": 76.58,
+            "rabi_rainfall_mm_recent": 125.93,
+            "root_zone_wetness_baseline": 0.359,
+            "root_zone_wetness_recent": 0.378,
+            "trends": [
+              {
+                "variable": "annual_mean_tmax_c",
+                "direction": "decreasing",
+                "significant": true,
+                "sen_slope_per_year": -0.06938
+              },
+              {
+                "variable": "annual_mean_tmin_c",
+                "direction": "no trend",
+                "significant": false,
+                "sen_slope_per_year": -0.01383
+              },
+              {
+                "variable": "root_zone_wetness",
+                "direction": "increasing",
+                "significant": true,
+                "sen_slope_per_year": 0.00157
+              },
+              {
+                "variable": "kharif_rainfall_mm",
+                "direction": "increasing",
+                "significant": true,
+                "sen_slope_per_year": 11.33364
+              },
+              {
+                "variable": "rabi_rainfall_mm",
+                "direction": "no trend",
+                "significant": false,
+                "sen_slope_per_year": 1.0305
+              }
+            ]
+          },
+          "data_sources": [
+            {
+              "source": "nasa_power",
+              "status": "ok"
+            },
+            {
+              "source": "isric_soilgrids",
+              "status": "manual_input_needed"
+            },
+            {
+              "source": "sky_to_soil_rotation_optimizer",
+              "status": "ok"
+            }
+          ]
+        },
+        "kb_sources": [
+          "FAO-56",
+          "crop residue and soil organic matter",
+          "legume nitrogen fixation"
+        ],
+        "model_used": "openai/gpt-oss-120b"
+      },
+      "ur": {
+        "text": "\u0645\u062d\u062a\u0631\u0645 \u06a9\u0633\u0627\u0646\u060c \u0622\u067e \u06a9\u06d2 \u0645\u0648\u062c\u0648\u062f\u06c1 \u0641\u0635\u0644\u06cc\u06ba \u06af\u0646\u062f\u0645 \u0627\u0648\u0631 \u06a9\u067e\u0627\u0633 \u06c1\u06cc\u06ba\u06d4 \u062a\u062c\u0648\u06cc\u0632 \u06a9\u0631\u062f\u06c1 \u0631\u0628\u06cc \u0633\u06cc\u0632\u0646 \u06a9\u06cc \u06af\u0631\u062f\u0634 \u0645\u06cc\u06ba \u0635\u0631\u0641 \u06af\u0646\u062f\u0645 (\u0631\u0648\u0679\u06cc \u06a9\u06cc \u06af\u0646\u062f\u0645) \u0634\u0627\u0645\u0644 \u06c1\u06d2\u06d4 \u0627\u0633 \u06af\u0631\u062f\u0634 \u06a9\u0627 \u0645\u062c\u0645\u0648\u0639\u06cc \u0627\u0633\u06a9\u0648\u0631 54.3 \u06c1\u06d2 \u0627\u0648\u0631 \u0648\u0632\u0646 \u0634\u062f\u06c1 \u062a\u0631\u062c\u06cc\u062d\u06cc \u0627\u0633\u06a9\u0648\u0631 57.6 \u06c1\u06d2\u06d4 \u067e\u0627\u0646\u06cc \u06a9\u06d2 \u0645\u0637\u0627\u0628\u0642 \u0627\u0633\u06a9\u0648\u0631 40.5 \u06c1\u06d2 \u062c\u0628\u06a9\u06c1 \u062d\u0631\u0627\u0631\u062a \u06a9\u06d2 \u062e\u0637\u0631\u06d2 \u06a9\u0627 \u0627\u0633\u06a9\u0648\u0631 80.0 \u06c1\u06d2\u06d4 \u0645\u0679\u06cc \u06a9\u06cc \u0635\u062d\u062a \u06a9\u0627 \u0627\u0633\u06a9\u0648\u0631 31.6 \u0627\u0648\u0631 \u0645\u0679\u06cc \u06a9\u06cc \u0645\u0648\u0632\u0648\u0646\u06cc\u062a \u06a9\u0627 \u0627\u0633\u06a9\u0648\u0631 65.0 \u06c1\u06d2\u06d4 \u0627\u0633 \u06a9\u0627 \u0645\u0637\u0644\u0628 \u06cc\u06c1 \u06c1\u06d2 \u06a9\u06c1 \u062d\u0631\u0627\u0631\u062a \u06a9\u06d2 \u062d\u0633\u0627\u0633 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0627\u062f\u06c1 \u062a\u0631 \u0633\u0627\u0644 \u06a9\u06d2 \u06af\u0631\u0645 \u062f\u0646\u0648\u06ba \u0633\u06d2 \u0628\u0686\u062a\u06d2 \u06c1\u06cc\u06ba\u060c \u0644\u06cc\u06a9\u0646 \u0641\u0635\u0644 \u06a9\u06cc \u067e\u0627\u0646\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u067e\u0648\u0631\u06cc \u06a9\u0631\u0646\u06d2 \u06a9\u06d2 \u0644\u06cc\u06d2 \u06a9\u0627\u0641\u06cc \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06c1\u0648 \u0633\u06a9\u062a\u06cc \u06c1\u06d2 \u0627\u0648\u0631 \u0627\u06cc\u06a9 \u062e\u0627\u0644\u06cc \u0645\u0648\u0633\u0645 \u0628\u06be\u06cc \u0634\u0627\u0645\u0644 \u06c1\u06d2\u06d4 \u0627\u0633 \u06a9\u06d2 \u0639\u0644\u0627\u0648\u06c1 \u0645\u0642\u0627\u0645\u06cc \u0645\u0679\u06cc \u06a9\u06d2 \u0688\u06cc\u0679\u0627 \u06a9\u06cc \u0639\u062f\u0645 \u0645\u0648\u062c\u0648\u062f\u06af\u06cc \u06a9\u06cc \u0648\u062c\u06c1 \u0633\u06d2 \u0645\u0679\u06cc \u06a9\u06cc \u0645\u0648\u0632\u0648\u0646\u06cc\u062a \u06a9\u06d2 \u0644\u06cc\u06d2 \u0688\u06cc\u0641\u0627\u0644\u0679 \u0645\u0641\u0631\u0648\u0636\u06d2 \u0627\u0633\u062a\u0639\u0645\u0627\u0644 \u06c1\u0648\u0626\u06d2 \u06c1\u06cc\u06ba\u06d4\n\n\u067e\u0627\u0646\u06cc \u06a9\u06d2 \u0646\u0642\u0635\u0627\u0646\u0627\u062a \u06a9\u06d2 \u0628\u0627\u0631\u06d2 \u0645\u06cc\u06ba\u060c \u06af\u0646\u062f\u0645 \u06a9\u06d2 \u0644\u06cc\u06d2 \u06a9\u0644 \u067e\u0627\u0646\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a 261.7\u202fmm \u06c1\u06d2 \u062c\u0628\u06a9\u06c1 \u0645\u0624\u062b\u0631 \u0628\u0627\u0631\u0634 \u0635\u0631\u0641 54.95\u202fmm \u06c1\u06d2\u060c \u062c\u0633 \u0633\u06d2 206.8\u202fmm \u06a9\u0627 \u067e\u0627\u0646\u06cc \u06a9\u0627 \u062e\u0633\u0627\u0631\u06c1 \u0628\u0646\u062a\u0627 \u06c1\u06d2 (FAO-56 \u06a9\u06d2 \u0645\u0637\u0627\u0628\u0642)\u06d4 \u0627\u0633 \u0644\u06cc\u06d2 \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u0648\u0627\u0636\u062d \u06c1\u06d2\u06d4\n\n\u0645\u0648\u0633\u0645\u06cc \u062a\u0628\u062f\u06cc\u0644\u06cc \u06a9\u06d2 \u062a\u062d\u062a \u0631\u0628\u06cc \u0628\u0627\u0631\u0634 \u0645\u06cc\u06ba 76.58\u202fmm \u0633\u06d2 \u0628\u0691\u06be \u06a9\u0631 125.93\u202fmm \u06c1\u0648 \u06af\u0626\u06cc \u06c1\u06d2 \u0627\u0648\u0631 \u0631\u0628\u06cc \u0628\u0627\u0631\u0634 \u06a9\u0627 \u0631\u062c\u062d\u0627\u0646 \u063a\u06cc\u0631 \u0648\u0627\u0636\u062d \u06c1\u06d2\u06d4 \u0627\u0633 \u06a9\u06d2 \u0633\u0627\u062a\u06be \u0633\u0627\u062a\u06be \u062f\u0631\u062c\u06c1 \u062d\u0631\u0627\u0631\u062a \u0645\u06cc\u06ba \u0645\u0639\u0645\u0648\u0644\u06cc \u06a9\u0645\u06cc \u06c1\u0648\u0626\u06cc \u06c1\u06d2\u06d4\n\n\u06cc\u06c1 \u0633\u0641\u0627\u0631\u0634 \u06a9\u0631\u0646\u06d2 \u0633\u06d2 \u067e\u06c1\u0644\u06d2\u060c \u0628\u0631\u0627\u06c1 \u06a9\u0631\u0645 \u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631 \u0633\u06d2 \u0627\u0633 \u06a9\u06cc \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631\u0627\u0626\u06cc\u06ba\u06d4",
+        "technical_note": "Rotation details: Y1_rabi \u2013 Wheat (bread wheat); Y2_rabi \u2013 Wheat (bread wheat). Per\u2011crop data shows wheat is non\u2011nitrogen fixing, medium residue contribution, heat stress days 0, critical temperature 32\u202f\u00b0C. Climate shift data indicates mean Tmax decreased by 0.849\u202f\u00b0C, mean Tmin decreased by 0.225\u202f\u00b0C, kharif rainfall increased (sen slope 11.33\u202fmm/yr), root zone wetness increased (sen slope 0.00157). Stress test shows baseline score 54.3, stressed score 53.8, score drop 0.5, resilience 99.5. Water deficit calculation aligns with FAO\u201156 definition (positive deficit = irrigation needed). Residue management advice from KB: returning residue supports soil organic matter (residue_som_01) and avoids loss of nutrients (residue_som_04). No legume present, so nitrogen\u2011fixing benefits are absent (legume_n_03, legume_n_02). Data sources: nasa_power (ok), sky_to_soil_rotation_optimizer (ok).",
+        "language": "ur",
+        "verified": true,
+        "issues": [],
+        "rewrites_used": 1,
+        "facts_used": {
+          "location": {
+            "lat": 31.42,
+            "lon": 73.08
+          },
+          "current_crops": [
+            "wheat",
+            "cotton"
+          ],
+          "rotation_crops": {
+            "Y1_rabi": "Wheat (bread wheat)",
+            "Y2_rabi": "Wheat (bread wheat)"
+          },
+          "per_crop": {
+            "wheat": {
+              "name": "Wheat (bread wheat)",
+              "slot": "Y1_rabi",
+              "family": "Poaceae",
+              "n_fixing": false,
+              "residue_contribution": "medium",
+              "data_available": true,
+              "etc_total_mm": 261.7,
+              "total_rainfall_mm": 60.9,
+              "effective_rainfall_mm": 54.95,
+              "water_deficit_mm": 206.8,
+              "heat_stress_days": 0,
+              "heat_window_length_days": 50,
+              "pct_heat_window_days_hot": 0.0,
+              "critical_temp_c": 32
+            }
+          },
+          "rotation_score": {
+            "base_score_0_100": 54.3,
+            "priority_weighted_score_0_100": 57.6,
+            "sub_scores": {
+              "water_fit": 40.5,
+              "heat_risk": 80.0,
+              "soil_health": 31.6,
+              "soil_suitability": 65.0
+            },
+            "reasons": [
+              "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+            ],
+            "warnings": [
+              "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+              "Includes a fallow season with no crop income.",
+              "Soil suitability used default assumptions because local soil data was unavailable."
+            ]
+          },
+          "stress_test": {
+            "data_available": true,
+            "delta_temp_c": 1.5,
+            "rainfall_change_pct": -15.0,
+            "baseline_score_0_100": 54.3,
+            "stressed_score_0_100": 53.8,
+            "score_drop": 0.5,
+            "resilience_score_0_100": 99.5
+          },
+          "soil": {
+            "data_available": false
+          },
+          "climate_shift": {
+            "data_available": true,
+            "baseline_period": "2001-2012",
+            "recent_period": "2013-2025",
+            "mean_tmax_c_baseline": 34.109,
+            "mean_tmax_c_recent": 33.26,
+            "delta_tmax_c": -0.849,
+            "mean_tmin_c_baseline": 19.556,
+            "mean_tmin_c_recent": 19.331,
+            "delta_tmin_c": -0.225,
+            "kharif_rainfall_mm_baseline": 311.09,
+            "kharif_rainfall_mm_recent": 402.12,
+            "rabi_rainfall_mm_baseline": 76.58,
+            "rabi_rainfall_mm_recent": 125.93,
+            "root_zone_wetness_baseline": 0.359,
+            "root_zone_wetness_recent": 0.378,
+            "trends": [
+              {
+                "variable": "annual_mean_tmax_c",
+                "direction": "decreasing",
+                "significant": true,
+                "sen_slope_per_year": -0.06938
+              },
+              {
+                "variable": "annual_mean_tmin_c",
+                "direction": "no trend",
+                "significant": false,
+                "sen_slope_per_year": -0.01383
+              },
+              {
+                "variable": "root_zone_wetness",
+                "direction": "increasing",
+                "significant": true,
+                "sen_slope_per_year": 0.00157
+              },
+              {
+                "variable": "kharif_rainfall_mm",
+                "direction": "increasing",
+                "significant": true,
+                "sen_slope_per_year": 11.33364
+              },
+              {
+                "variable": "rabi_rainfall_mm",
+                "direction": "no trend",
+                "significant": false,
+                "sen_slope_per_year": 1.0305
+              }
+            ]
+          },
+          "data_sources": [
+            {
+              "source": "nasa_power",
+              "status": "ok"
+            },
+            {
+              "source": "isric_soilgrids",
+              "status": "manual_input_needed"
+            },
+            {
+              "source": "sky_to_soil_rotation_optimizer",
+              "status": "ok"
+            }
+          ]
+        },
+        "kb_sources": [
+          "FAO-56",
+          "crop residue and soil organic matter",
+          "legume nitrogen fixation"
+        ],
+        "model_used": "openai/gpt-oss-120b"
+      }
+    }
+  },
+  "advisor_chat": {
+    "en": [
+      {
+        "question": "Why was this rotation recommended for my farm?",
+        "response": {
+          "answer": "The recommendation is based on the farm\u2011specific rotation score and climate data. The rotation of wheat (bread wheat) in both Year\u202f1 and Year\u202f2 received a base score of 54.3 and a priority\u2011weighted score of 57.6, with sub\u2011scores showing good heat risk (80.0) and moderate soil suitability (65.0). The heat\u2011sensitive growth stages of wheat mostly avoid the hottest days, as noted in the reasons. However, the water\u2011fit sub\u2011score is low (40.5) and the warnings note that significant supplemental irrigation will likely be needed to meet wheat\u2019s water demand (water deficit 206.8\u202fmm). The climate shift data show a recent increase in rabi rainfall (from 76.58\u202fmm to 125.93\u202fmm) and a slight decrease in maximum temperature, which supports wheat\u2019s lower heat stress but does not fully offset the water deficit. Because soil data are unavailable, the soil\u2011health sub\u2011score is modest (31.6) and the plan assumes default soil suitability. Overall, the rotation was chosen because wheat\u2019s growth timing matches the local heat pattern and the recent climate trends, while the score and warnings highlight the need for irrigation and soil\u2011health attention. You should confirm this plan with a local extension officer before implementing it.",
+          "language": "en",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 0,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation",
+            "water-saving practices"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "How much extra irrigation will wheat need in this rotation?",
+        "response": {
+          "answer": "Based on the data, wheat (bread wheat) has a water deficit of 206.8\u202fmm, meaning it would likely require about 207\u202fmm of supplemental irrigation to meet its total water demand in this rotation. This estimate follows the water\u2011deficit definition from FAO\u201156 (FAO-56) and the wheat-specific deficit value in the provided facts. Because irrigation needs can vary with field conditions, you should confirm this plan with a local extension officer before implementation.",
+          "language": "en",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation",
+            "water-saving practices"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "Will this rotation guarantee a good profit?",
+        "response": {
+          "answer": "I couldn't verify a confident answer to that from this farm's facts. Please ask about rainfall, temperature shifts, soil, or the recommended rotation for this farm. As always, confirm this plan with your local extension officer before making changes.",
+          "language": "en",
+          "verified": true,
+          "issues": [],
+          "answerable": false,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO conservation agriculture",
+            "crop diversity and pest breaks",
+            "crop residue and soil organic matter",
+            "water-saving practices"
+          ],
+          "model_used": "fallback_template"
+        }
+      },
+      {
+        "question": "What should I watch out for with this rotation?",
+        "response": {
+          "answer": "Watch out for the significant supplemental irrigation needed to meet the wheat water demand (water deficit of 206.8\u202fmm and water_fit score of 40.5). The rotation includes a fallow season, so there will be a period with no crop income. Soil suitability was based on default assumptions because local soil data was unavailable, which adds uncertainty to soil health and suitability outcomes. Also, heat risk is low (heat_risk score 80.0 and no heat\u2011stress days), but the overall soil health score is modest (31.6). Confirm these considerations with your local extension officer before proceeding.",
+          "language": "en",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 0,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "How is my local climate changing?",
+        "response": {
+          "answer": "Your climate data show several recent trends. Mean maximum temperature has been decreasing (\u0394\u20110.849\u202f\u00b0C) and the trend is statistically significant (annual_mean_tmax_c decreasing, sen\u202fslope\u202f\u20110.06938\u202f\u00b0C/yr). Mean minimum temperature shows no significant trend (\u0394\u20110.225\u202f\u00b0C, not significant). Rainfall during the kharif season has increased significantly (from 311.09\u202fmm to 402.12\u202fmm, trend upward, sen\u202fslope\u202f11.33\u202fmm/yr). Rabi\u2011season rainfall shows no significant trend (76.58\u202fmm to 125.93\u202fmm, not significant). Root\u2011zone wetness is increasing (0.359 to 0.378, significant trend). These changes suggest cooler hottest days, more kharif rain, and slightly wetter soils overall. You should discuss these observations with a local extension officer before making any management decisions.",
+          "language": "en",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation",
+            "water-saving practices"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      }
+    ],
+    "ur": [
+      {
+        "question": "\u06cc\u06c1 \u0641\u0635\u0644 \u06a9\u06cc \u062a\u0631\u062a\u06cc\u0628 \u0645\u06cc\u0631\u06d2 \u0641\u0627\u0631\u0645 \u06a9\u06d2 \u0644\u06cc\u06d2 \u06a9\u06cc\u0648\u06ba \u062a\u062c\u0648\u06cc\u0632 \u06a9\u06cc \u06af\u0626\u06cc\u061f",
+        "response": {
+          "answer": "\u06cc\u06c1 \u0631\u0628\u06cc \u0633\u06cc\u0632\u0646 \u0645\u06cc\u06ba \u062f\u0648 \u0633\u0627\u0644 \u0645\u0633\u0644\u0633\u0644 \u06af\u0646\u062f\u0645 (\u0628\u0631\u06cc\u0688 \u06af\u0646\u062f\u0645) \u06a9\u06cc \u062a\u0631\u062a\u06cc\u0628 \u0627\u0633 \u0644\u06cc\u06d2 \u062a\u062c\u0648\u06cc\u0632 \u06a9\u06cc \u06af\u0626\u06cc \u06c1\u06d2 \u06a9\u06cc\u0648\u0646\u06a9\u06c1 \u0627\u0633 \u06a9\u06cc \u0633\u0628 \u0633\u06d2 \u062d\u0633\u0627\u0633 \u0628\u0691\u06be\u0648\u062a\u0631\u06cc \u06a9\u06d2 \u0645\u0631\u0627\u062d\u0644 \u0633\u0627\u0644 \u06a9\u06d2 \u0633\u0628 \u0633\u06d2 \u06af\u0631\u0645 \u062f\u0646\u0648\u06ba \u0633\u06d2 \u0628\u0686\u062a\u06d2 \u06c1\u06cc\u06ba (rotation_score \u06a9\u06d2 \"reasons\" \u0645\u06cc\u06ba \u0630\u06a9\u0631 \u06c1\u06d2)\u06d4 \u062a\u0627\u06c1\u0645\u060c \u06af\u0646\u062f\u0645 \u06a9\u06cc \u06a9\u0644 \u067e\u0627\u0646\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a (ETc) \u06a9\u06d2 \u0645\u0642\u0627\u0628\u0644\u06d2 \u0645\u06cc\u06ba \u0645\u0624\u062b\u0631 \u0628\u0627\u0631\u0634 \u0635\u0631\u0641 54.95\u202fmm \u06c1\u06d2 \u062c\u0628\u06a9\u06c1 \u067e\u0627\u0646\u06cc \u06a9\u0627 \u062e\u0633\u0627\u0631\u06c1 206.8\u202fmm \u06c1\u06d2 (per_crop \u06a9\u06d2 \u0627\u0639\u062f\u0627\u062f \u0648 \u0634\u0645\u0627\u0631)\u061b \u0627\u0633 \u0644\u06cc\u06d2 \u06a9\u0627\u0641\u06cc \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06c1\u0648\u06af\u06cc\u06d4 \u0627\u0633 \u06a9\u06d2 \u0639\u0644\u0627\u0648\u06c1\u060c \u0645\u0679\u06cc \u06a9\u06cc \u0635\u062d\u062a \u0627\u0648\u0631 \u0645\u0648\u0632\u0648\u0646\u06cc\u062a \u06a9\u06d2 \u0627\u0633\u06a9\u0648\u0631 \u06a9\u0645 (soil_health\u202f31.6\u060c soil_suitability\u202f65.0) \u06c1\u06cc\u06ba \u0627\u0648\u0631 \u0645\u0642\u0627\u0645\u06cc \u0645\u0679\u06cc \u06a9\u06d2 \u0688\u06cc\u0679\u0627 \u06a9\u06cc \u0639\u062f\u0645 \u0645\u0648\u062c\u0648\u062f\u06af\u06cc \u06a9\u06d2 \u0628\u0627\u0639\u062b \u0688\u06cc\u0641\u0627\u0644\u0679 \u0645\u0641\u0631\u0648\u0636\u06d2 \u0627\u0633\u062a\u0639\u0645\u0627\u0644 \u06c1\u0648\u0626\u06d2 \u06c1\u06cc\u06ba\u06d4 \u06a9\u0644 \u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u06a9\u0627 \u0627\u0633\u06a9\u0648\u0631 54.3 \u0633\u06d2 57.6 \u062a\u06a9 \u06c1\u06d2\u060c \u0644\u06cc\u06a9\u0646 \u0627\u0646\u062a\u0628\u0627\u06c1\u0627\u062a \u0645\u06cc\u06ba \u0628\u062a\u0627\u06cc\u0627 \u06af\u06cc\u0627 \u06c1\u06d2 \u06a9\u06c1 \u0627\u06cc\u06a9 \u0641\u0627\u0644\u06cc \u0633\u06cc\u0632\u0646 \u0628\u06be\u06cc \u0634\u0627\u0645\u0644 \u06c1\u06d2 \u062c\u0633 \u0633\u06d2 \u0622\u0645\u062f\u0646\u06cc \u0646\u06c1\u06cc\u06ba \u06c1\u0648\u06af\u06cc\u06d4 \u0644\u06c1\u0670\u0630\u0627\u060c \u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u06a9\u0648 \u0627\u067e\u0646\u0627\u0646\u06d2 \u0633\u06d2 \u067e\u06c1\u0644\u06d2 \u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631 \u0633\u06d2 \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631 \u0644\u06cc\u0646\u0627 \u0628\u06c1\u062a\u0631 \u06c1\u0648\u06af\u0627\u06d4",
+          "language": "ur",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 0,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "\u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u0645\u06cc\u06ba \u06af\u0646\u062f\u0645 \u06a9\u0648 \u06a9\u062a\u0646\u06cc \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06c1\u0648\u06af\u06cc\u061f",
+        "response": {
+          "answer": "\u06af\u0646\u062f\u0645 \u06a9\u06d2 \u0644\u06cc\u06d2 \u067e\u0627\u0646\u06cc \u06a9\u06cc \u06a9\u0645\u06cc 206.8\u202fmm \u062f\u0631\u062c \u06c1\u06d2\u060c \u0627\u0633 \u0644\u06cc\u06d2 \u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u0645\u06cc\u06ba \u06af\u0646\u062f\u0645 \u06a9\u0648 \u062a\u0642\u0631\u06cc\u0628\u0627\u064b 206.8\u202fmm \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06c1\u0648\u06af\u06cc\u06d4 \u0641\u06cc\u0635\u0644\u06c1 \u06a9\u0631\u0646\u06d2 \u0633\u06d2 \u067e\u06c1\u0644\u06d2 \u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631 \u0633\u06d2 \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631\u0646\u0627 \u0628\u06c1\u062a\u0631 \u06c1\u0648\u06af\u0627\u06d4",
+          "language": "ur",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 0,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "\u06a9\u06cc\u0627 \u06cc\u06c1 \u062a\u0631\u062a\u06cc\u0628 \u0627\u0686\u06be\u06d2 \u0645\u0646\u0627\u0641\u0639 \u06a9\u06cc \u0636\u0645\u0627\u0646\u062a \u062f\u06cc\u062a\u06cc \u06c1\u06d2\u061f",
+        "response": {
+          "answer": "\u0645\u06cc\u06ba \u0627\u0633 \u0633\u0648\u0627\u0644 \u06a9\u0627 \u062a\u0635\u062f\u06cc\u0642 \u0634\u062f\u06c1 \u062c\u0648\u0627\u0628 \u0627\u0633 \u0641\u0627\u0631\u0645 \u06a9\u06d2 \u062d\u0642\u0627\u0626\u0642 \u0633\u06d2 \u0646\u06c1\u06cc\u06ba \u062f\u06d2 \u0633\u06a9\u0627\u06d4 \u0628\u0631\u0627\u06c1 \u06a9\u0631\u0645 \u0628\u0627\u0631\u0634\u060c \u062f\u0631\u062c\u06c1 \u062d\u0631\u0627\u0631\u062a \u06a9\u06cc \u062a\u0628\u062f\u06cc\u0644\u06cc\u060c \u0645\u0679\u06cc\u060c \u06cc\u0627 \u062a\u062c\u0648\u06cc\u0632 \u06a9\u0631\u062f\u06c1 \u0641\u0635\u0644 \u06a9\u06cc \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0628\u0627\u0631\u06d2 \u0645\u06cc\u06ba \u067e\u0648\u0686\u06be\u06cc\u06ba\u06d4 \u06c1\u0645\u06cc\u0634\u06c1 \u06a9\u06cc \u0637\u0631\u062d\u060c \u06a9\u0648\u0626\u06cc \u062a\u0628\u062f\u06cc\u0644\u06cc \u06a9\u0631\u0646\u06d2 \u0633\u06d2 \u067e\u06c1\u0644\u06d2 \u0627\u067e\u0646\u06d2 \u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631 \u0633\u06d2 \u0627\u0633 \u0645\u0646\u0635\u0648\u0628\u06d2 \u06a9\u06cc \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631\u06cc\u06ba\u06d4",
+          "language": "ur",
+          "verified": true,
+          "issues": [],
+          "answerable": false,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO conservation agriculture",
+            "crop diversity and pest breaks",
+            "crop residue and soil organic matter",
+            "water-saving practices"
+          ],
+          "model_used": "fallback_template"
+        }
+      },
+      {
+        "question": "\u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0633\u0627\u062a\u06be \u0645\u062c\u06be\u06d2 \u06a9\u0633 \u0628\u0627\u062a \u06a9\u0627 \u062e\u06cc\u0627\u0644 \u0631\u06a9\u06be\u0646\u0627 \u0686\u0627\u06c1\u06cc\u06d2\u061f",
+        "response": {
+          "answer": "\u0627\u0633 \u0631\u0628\u06cc \u0633\u06cc\u0632\u0646 \u0645\u06cc\u06ba \u06af\u0646\u062f\u0645 (bread wheat) \u06a9\u06cc \u062a\u062c\u0648\u06cc\u0632 \u06a9\u0631\u062f\u06c1 \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0644\u06cc\u06d2 \u0686\u0646\u062f \u0627\u06c1\u0645 \u0646\u06a9\u0627\u062a \u06c1\u06cc\u06ba:\\n\\n1. \u067e\u0627\u0646\u06cc \u06a9\u06cc \u06a9\u0645\u06cc: \u06af\u0646\u062f\u0645 \u06a9\u06d2 \u0644\u06cc\u06d2 ETc \u0627\u0648\u0631 \u0645\u0624\u062b\u0631 \u0628\u0627\u0631\u0634 \u06a9\u06d2 \u062f\u0631\u0645\u06cc\u0627\u0646 \u0641\u0631\u0642 206.8\u202fmm \u06c1\u06d2 (\"water_deficit_mm\": 206.8) \u062c\u0633 \u0633\u06d2 \u0648\u0627\u0636\u062d \u06c1\u06d2 \u06a9\u06c1 \u06a9\u0627\u0641\u06cc \u0627\u0636\u0627\u0641\u06cc \u0622\u0628\u067e\u0627\u0634\u06cc \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06c1\u0648\u06af\u06cc\u06d4 \u0627\u0633 \u0628\u0627\u0631\u06d2 \u0645\u06cc\u06ba FAO\u201156 \u06a9\u06d2 \u0645\u0637\u0627\u0628\u0642 \u06cc\u06c1 \u0627\u06cc\u06a9 \u0645\u062b\u0628\u062a \u067e\u0627\u0646\u06cc \u06a9\u0627 \u062e\u0633\u0627\u0631\u06c1 \u06c1\u06d2 \u0627\u0648\u0631 irrigation \u06a9\u06cc \u0636\u0631\u0648\u0631\u062a \u06a9\u0648 \u0638\u0627\u06c1\u0631 \u06a9\u0631\u062a\u0627 \u06c1\u06d2 (source: fao56_02)\u06d4\\n\\n2. \u06af\u0631\u0645\u06cc \u06a9\u0627 \u062e\u0637\u0631\u06c1: \u06af\u0631\u0645\u06cc \u06a9\u06d2 \u062d\u0633\u0627\u0633 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0627\u062f\u06c1 \u062a\u0631 \u0633\u0627\u0644 \u06a9\u06d2 \u0633\u0628 \u0633\u06d2 \u06af\u0631\u0645 \u062f\u0646\u0648\u06ba \u0633\u06d2 \u0628\u0686\u062a\u06d2 \u06c1\u06cc\u06ba \u0627\u0648\u0631 heat_stress_days \u0635\u0641\u0631 \u06c1\u06d2\u060c \u0644\u06cc\u06a9\u0646 heat_window_length_days 50 \u06c1\u06d2 \u0627\u0648\u0631 pct_heat_window_days_hot 0.0 \u06c1\u06d2\u060c \u0627\u0633 \u0644\u06cc\u06d2 \u06af\u0631\u0645\u06cc \u06a9\u0627 \u062e\u0637\u0631\u06c1 \u06a9\u0645 \u06c1\u06d2\u06d4\\n\\n3. \u0645\u0679\u06cc \u06a9\u06cc \u0635\u062d\u062a: \u0645\u0679\u06cc \u06a9\u0627 \u0688\u06cc\u0679\u0627 \u062f\u0633\u062a\u06cc\u0627\u0628 \u0646\u06c1\u06cc\u06ba (\"soil\": {\"data_available\": false}) \u0627\u0648\u0631 rotation_score \u0645\u06cc\u06ba \"Soil suitability used default assumptions because local soil data was unavailable\" \u0627\u06cc\u06a9 \u0648\u0627\u0631\u0646\u0646\u06af \u06c1\u06d2\u06d4 \u0627\u0633 \u0644\u06cc\u06d2 \u0645\u0679\u06cc \u06a9\u06cc \u0645\u0648\u062c\u0648\u062f\u06c1 \u062d\u0627\u0644\u062a \u06a9\u0627 \u062c\u0627\u0626\u0632\u06c1 \u0644\u06cc\u0646\u0627 \u0636\u0631\u0648\u0631\u06cc \u06c1\u06d2\u06d4\\n\\n4. \u0641\u0627\u0644\u0633 \u0633\u06cc\u0632\u0646: \u062a\u0631\u062a\u06cc\u0628 \u0645\u06cc\u06ba \u0627\u06cc\u06a9 fallow \u0633\u06cc\u0632\u0646 \u0634\u0627\u0645\u0644 \u06c1\u06d2 \u062c\u0633 \u0633\u06d2 \u0627\u0633 \u0633\u06cc\u0632\u0646 \u0645\u06cc\u06ba \u06a9\u0648\u0626\u06cc \u0641\u0635\u0644 \u06a9\u06cc \u0622\u0645\u062f\u0646\u06cc \u0646\u06c1\u06cc\u06ba \u06c1\u0648\u06af\u06cc\u06d4\\n\\n5. \u0645\u0642\u0627\u0645\u06cc \u062d\u0627\u0644\u0627\u062a \u06a9\u06cc \u062a\u0648\u062b\u06cc\u0642: \u0627\u0633 \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0646\u0641\u0627\u0630 \u0633\u06d2 \u067e\u06c1\u0644\u06d2 \"\u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631\" \u0633\u06d2 \u0645\u0634\u0648\u0631\u06c1 \u06a9\u0631 \u06a9\u06d2 \u067e\u0627\u0646\u06cc \u06a9\u06cc \u062f\u0633\u062a\u06cc\u0627\u0628\u06cc\u060c \u0645\u0679\u06cc \u06a9\u06cc \u062d\u0627\u0644\u062a \u0627\u0648\u0631 fallow \u0633\u06cc\u0632\u0646 \u06a9\u06d2 \u0645\u0645\u06a9\u0646\u06c1 \u0627\u062b\u0631\u0627\u062a \u06a9\u06cc \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631\u06cc\u06ba\u06d4\\n\\n\u06cc\u06c1 \u0646\u06a9\u0627\u062a \u0622\u067e \u06a9\u0648 \u0627\u0633 \u0631\u0628\u06cc \u06af\u0646\u062f\u0645 \u06a9\u06cc \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0633\u0627\u062a\u06be \u0622\u06af\u06d2 \u0628\u0691\u06be\u0646\u06d2 \u0645\u06cc\u06ba \u0645\u062f\u062f \u062f\u06cc\u06ba \u06af\u06d2\u060c \u0644\u06cc\u06a9\u0646 \u062d\u062a\u0645\u06cc \u0641\u06cc\u0635\u0644\u06c1 \u0645\u0642\u0627\u0645\u06cc \u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0648\u0631 \u0645\u0634\u0627\u0648\u0631\u062a \u067e\u0631 \u0645\u0628\u0646\u06cc \u06c1\u0648\u0646\u0627 \u0686\u0627\u06c1\u06cc\u06d2\u06d4",
+          "language": "ur",
+          "verified": true,
+          "issues": [],
+          "answerable": true,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO-56",
+            "crop residue and soil organic matter",
+            "legume nitrogen fixation"
+          ],
+          "model_used": "openai/gpt-oss-120b"
+        }
+      },
+      {
+        "question": "\u0645\u06cc\u0631\u06d2 \u0639\u0644\u0627\u0642\u06d2 \u06a9\u06cc \u0622\u0628 \u0648 \u06c1\u0648\u0627 \u06a9\u06cc\u0633\u06d2 \u0628\u062f\u0644 \u0631\u06c1\u06cc \u06c1\u06d2\u061f",
+        "response": {
+          "answer": "\u0645\u06cc\u06ba \u0627\u0633 \u0633\u0648\u0627\u0644 \u06a9\u0627 \u062a\u0635\u062f\u06cc\u0642 \u0634\u062f\u06c1 \u062c\u0648\u0627\u0628 \u0627\u0633 \u0641\u0627\u0631\u0645 \u06a9\u06d2 \u062d\u0642\u0627\u0626\u0642 \u0633\u06d2 \u0646\u06c1\u06cc\u06ba \u062f\u06d2 \u0633\u06a9\u0627\u06d4 \u0628\u0631\u0627\u06c1 \u06a9\u0631\u0645 \u0628\u0627\u0631\u0634\u060c \u062f\u0631\u062c\u06c1 \u062d\u0631\u0627\u0631\u062a \u06a9\u06cc \u062a\u0628\u062f\u06cc\u0644\u06cc\u060c \u0645\u0679\u06cc\u060c \u06cc\u0627 \u062a\u062c\u0648\u06cc\u0632 \u06a9\u0631\u062f\u06c1 \u0641\u0635\u0644 \u06a9\u06cc \u062a\u0631\u062a\u06cc\u0628 \u06a9\u06d2 \u0628\u0627\u0631\u06d2 \u0645\u06cc\u06ba \u067e\u0648\u0686\u06be\u06cc\u06ba\u06d4 \u06c1\u0645\u06cc\u0634\u06c1 \u06a9\u06cc \u0637\u0631\u062d\u060c \u06a9\u0648\u0626\u06cc \u062a\u0628\u062f\u06cc\u0644\u06cc \u06a9\u0631\u0646\u06d2 \u0633\u06d2 \u067e\u06c1\u0644\u06d2 \u0627\u067e\u0646\u06d2 \u0645\u0642\u0627\u0645\u06cc \u0632\u0631\u0639\u06cc \u062a\u0648\u0633\u06cc\u0639\u06cc \u0627\u06c1\u0644\u06a9\u0627\u0631 \u0633\u06d2 \u0627\u0633 \u0645\u0646\u0635\u0648\u0628\u06d2 \u06a9\u06cc \u062a\u0635\u062f\u06cc\u0642 \u06a9\u0631\u06cc\u06ba\u06d4",
+          "language": "ur",
+          "verified": true,
+          "issues": [],
+          "answerable": false,
+          "rewrites_used": 1,
+          "facts_used": {
+            "location": {
+              "lat": 31.42,
+              "lon": 73.08
+            },
+            "current_crops": [
+              "wheat",
+              "cotton"
+            ],
+            "rotation_crops": {
+              "Y1_rabi": "Wheat (bread wheat)",
+              "Y2_rabi": "Wheat (bread wheat)"
+            },
+            "per_crop": {
+              "wheat": {
+                "name": "Wheat (bread wheat)",
+                "slot": "Y1_rabi",
+                "family": "Poaceae",
+                "n_fixing": false,
+                "residue_contribution": "medium",
+                "data_available": true,
+                "etc_total_mm": 261.7,
+                "total_rainfall_mm": 60.9,
+                "effective_rainfall_mm": 54.95,
+                "water_deficit_mm": 206.8,
+                "heat_stress_days": 0,
+                "heat_window_length_days": 50,
+                "pct_heat_window_days_hot": 0.0,
+                "critical_temp_c": 32
+              }
+            },
+            "rotation_score": {
+              "base_score_0_100": 54.3,
+              "priority_weighted_score_0_100": 57.6,
+              "sub_scores": {
+                "water_fit": 40.5,
+                "heat_risk": 80.0,
+                "soil_health": 31.6,
+                "soil_suitability": 65.0
+              },
+              "reasons": [
+                "Heat-sensitive growth stages mostly avoid the hottest days of the year."
+              ],
+              "warnings": [
+                "This rotation likely needs significant supplemental irrigation to meet crop water demand.",
+                "Includes a fallow season with no crop income.",
+                "Soil suitability used default assumptions because local soil data was unavailable."
+              ]
+            },
+            "stress_test": {
+              "data_available": true,
+              "delta_temp_c": 1.5,
+              "rainfall_change_pct": -15.0,
+              "baseline_score_0_100": 54.3,
+              "stressed_score_0_100": 53.8,
+              "score_drop": 0.5,
+              "resilience_score_0_100": 99.5
+            },
+            "soil": {
+              "data_available": false
+            },
+            "climate_shift": {
+              "data_available": true,
+              "baseline_period": "2001-2012",
+              "recent_period": "2013-2025",
+              "mean_tmax_c_baseline": 34.109,
+              "mean_tmax_c_recent": 33.26,
+              "delta_tmax_c": -0.849,
+              "mean_tmin_c_baseline": 19.556,
+              "mean_tmin_c_recent": 19.331,
+              "delta_tmin_c": -0.225,
+              "kharif_rainfall_mm_baseline": 311.09,
+              "kharif_rainfall_mm_recent": 402.12,
+              "rabi_rainfall_mm_baseline": 76.58,
+              "rabi_rainfall_mm_recent": 125.93,
+              "root_zone_wetness_baseline": 0.359,
+              "root_zone_wetness_recent": 0.378,
+              "trends": [
+                {
+                  "variable": "annual_mean_tmax_c",
+                  "direction": "decreasing",
+                  "significant": true,
+                  "sen_slope_per_year": -0.06938
+                },
+                {
+                  "variable": "annual_mean_tmin_c",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": -0.01383
+                },
+                {
+                  "variable": "root_zone_wetness",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 0.00157
+                },
+                {
+                  "variable": "kharif_rainfall_mm",
+                  "direction": "increasing",
+                  "significant": true,
+                  "sen_slope_per_year": 11.33364
+                },
+                {
+                  "variable": "rabi_rainfall_mm",
+                  "direction": "no trend",
+                  "significant": false,
+                  "sen_slope_per_year": 1.0305
+                }
+              ]
+            },
+            "data_sources": [
+              {
+                "source": "nasa_power",
+                "status": "ok"
+              },
+              {
+                "source": "isric_soilgrids",
+                "status": "manual_input_needed"
+              },
+              {
+                "source": "sky_to_soil_rotation_optimizer",
+                "status": "ok"
+              }
+            ]
+          },
+          "kb_sources": [
+            "FAO conservation agriculture",
+            "crop diversity and pest breaks",
+            "crop residue and soil organic matter",
+            "water-saving practices"
+          ],
+          "model_used": "fallback_template"
+        }
+      }
+    ]
   },
   "warnings": [
     "soil: ISRIC SoilGrids returned HTTP 200 but null values for every property/depth at this location. This looks like an upstream data outage rather than a request error (verified against multiple real-world test points). Please enter soil values manually.",
