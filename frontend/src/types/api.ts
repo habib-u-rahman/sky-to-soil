@@ -212,6 +212,7 @@ export interface RotationSubScores {
   heat_risk: number;
   soil_health: number;
   soil_suitability: number;
+  land_use: number;
 }
 
 export interface ScoredRotation {

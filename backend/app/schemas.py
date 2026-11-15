@@ -242,6 +242,7 @@ class RotationSubScores(BaseModel):
     heat_risk: float
     soil_health: float
     soil_suitability: float
+    land_use: float = Field(..., description="land-use/income proxy, 0-100; a fallow season scores 0 here")
 
 
 class ScoredRotation(BaseModel):

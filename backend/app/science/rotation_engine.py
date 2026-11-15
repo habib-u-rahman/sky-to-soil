@@ -1,10 +1,10 @@
 """2-year / 4-season rotation generator and scorer.
 
 Generates every agronomically valid 2-year rotation (Y1_kharif, Y1_rabi,
-Y2_kharif, Y2_rabi; fallow allowed as a null slot), scores each on four
-0-100 sub-scores (water_fit, heat_risk, soil_health, soil_suitability),
-combines them with farmer priority weights, and returns the top N plus the
-Pareto-optimal set.
+Y2_kharif, Y2_rabi; at most one slot may be left fallow), scores each on
+five 0-100 sub-scores (water_fit, heat_risk, soil_health, soil_suitability,
+land_use), combines them with farmer priority weights, and returns the top
+N plus the Pareto-optimal set.
 
 Scoring uses a day-of-year CLIMATOLOGY (typical year), not one specific
 historical year -- see app/science/climatology.py.
@@ -30,11 +30,22 @@ PARETO_CANDIDATE_CAP = 300
 
 RESIDUE_SCORE = {"low": 33.0, "medium": 66.0, "high": 100.0}
 
-# Score contributed by a fallow/empty slot to water_fit, heat_risk, and
-# soil_suitability -- deliberately below 100 so leaving a season idle is
-# only competitive when every available crop for that season genuinely
-# scores worse, not a free way to inflate a rotation's average.
-NEUTRAL_EMPTY_SLOT = 60.0
+# A rotation with no cropped slots at all (should be impossible once the
+# <=1-fallow cap below is applied, but kept as a defensive fallback for
+# slot_avg if it's ever called with zero filled slots).
+NEUTRAL_EMPTY_SLOT = 50.0
+
+# A 2-year/4-season rotation may leave at most this many seasons fallow.
+# Cover/fodder crops (berseem etc.) are real crop ids, not None, so they
+# count as cropped and are unaffected by this cap.
+MAX_FALLOW_SLOTS = 1
+
+# Fixed weight given to the land-use/income sub-score in every
+# priority-weighted score, on top of whatever the farmer's own priority
+# sliders contribute -- this is what keeps a fallow-heavy rotation from
+# winning purely by minimizing water/heat exposure: idle land always costs
+# something, regardless of what the farmer says they care about.
+LAND_USE_BASELINE_WEIGHT = 0.2
 
 
 def _crop_water_and_heat(crop: dict, climatology: dict[int, dict] | None, lat: float) -> dict:
@@ -124,11 +135,12 @@ def _generate_candidate_slot_assignments() -> list[dict]:
             cand = {pair[0]: "sugarcane", pair[1]: "sugarcane", remaining[0]: v0, remaining[1]: v1}
             candidates.append(cand)
 
-    # A fully-fallow 2-year candidate (every slot None) isn't a "rotation" --
-    # it's abandoning the field -- and the all-slots-empty defaults used for
-    # water_fit/heat_risk (100, trivially true with nothing planted) would
-    # otherwise let it rank above every real cropping choice. Drop it.
-    candidates = [c for c in candidates if any(c.values())]
+    # At most MAX_FALLOW_SLOTS season may be left fallow. A real Punjab
+    # farmer rotation leaves little land idle across 2 years; without this
+    # cap, a mostly-fallow candidate can out-score every real cropping
+    # choice simply by having less exposure to water/heat risk to average
+    # over. This also drops the fully-fallow ("abandon the field") case.
+    candidates = [c for c in candidates if sum(1 for v in c.values() if v is None) <= MAX_FALLOW_SLOTS]
 
     return candidates
 
@@ -141,12 +153,12 @@ def _closeness_score(slots: dict, current_crops: list[str]) -> float:
     return round(100.0 * matches / len(filled), 1)
 
 
-def _income_score(slots: dict) -> float:
-    filled_values = [INCOME_PROXY.get(c, 0) for c in slots.values() if c]
-    all_values = [INCOME_PROXY.get(c, 0) if c else 0 for c in slots.values()]
-    if not all_values:
-        return 0.0
-    return round(sum(all_values) / len(all_values), 1)
+def _land_use_score(slots: dict) -> float:
+    """Average per-slot income proxy (0-100) over all 4 slots, with a
+    fallow slot contributing exactly 0 -- an explicit land-use/income
+    penalty for leaving land idle, independent of water/heat/soil fit."""
+    values = [INCOME_PROXY.get(c, 0) if c else 0.0 for c in slots.values()]
+    return round(sum(values) / len(SLOTS), 1)
 
 
 def _soil_health_score(slots: dict, cache: dict) -> dict:
@@ -242,41 +254,46 @@ def _build_reasons_and_warnings(slots: dict, cache: dict, sub_scores: dict, soil
 def _score_candidate(slots: dict, cache: dict, priorities: dict, current_crops: list[str]) -> dict:
     filled = [c for c in slots.values() if c]
 
-    # Average over all 4 slots (not just filled ones), scoring an empty/
-    # fallow slot as NEUTRAL_EMPTY_SLOT -- not "perfect" (which would make
-    # leaving land idle look free) and not penalized either (fallow
-    # genuinely has no water/heat stress of its own). This keeps a rotation
-    # that crops only 1 of 4 seasons from floating to the top purely by
-    # avoiding the denominator exposure a fully-cropped rotation has.
+    # water_fit/heat_risk/soil_suitability are judged PER CROPPED SEASON --
+    # averaged only over the slots that actually have a crop in them, each
+    # relative to what that specific crop needs. A fallow slot contributes
+    # nothing here (neither a bonus nor a penalty): its cost is accounted
+    # for separately and explicitly by land_use below, not by diluting
+    # these climate/soil-fit averages with a stand-in value that could
+    # accidentally pull a water-stressed rotation's average UP.
     def slot_avg(field: str) -> float:
-        total = sum(cache[c][field] if c else NEUTRAL_EMPTY_SLOT for c in slots.values())
-        return round(total / len(SLOTS), 1)
+        values = [cache[c][field] for c in slots.values() if c]
+        if not values:
+            return NEUTRAL_EMPTY_SLOT
+        return round(sum(values) / len(values), 1)
 
     water_fit = slot_avg("water_fit")
     heat_risk = slot_avg("heat_risk")
     soil_suitability = slot_avg("suitability")
     soil_health_detail = _soil_health_score(slots, cache)
     soil_health = soil_health_detail["score"]
+    land_use = _land_use_score(slots)
 
     sub_scores = {
         "water_fit": water_fit,
         "heat_risk": heat_risk,
         "soil_health": soil_health,
         "soil_suitability": soil_suitability,
+        "land_use": land_use,
     }
-    base_score = round(sum(sub_scores.values()) / 4, 1)
+    base_score = round(sum(sub_scores.values()) / len(sub_scores), 1)
 
     closeness = _closeness_score(slots, current_crops)
-    income = _income_score(slots)
 
     weight_terms = [
         (priorities.get("save_water", 0), water_fit),
         (priorities.get("build_soil", 0), soil_health),
         (priorities.get("lower_climate_risk", 0), heat_risk),
         (priorities.get("stay_close_to_current", 0), closeness),
+        (LAND_USE_BASELINE_WEIGHT, land_use),
     ]
     if priorities.get("income_proxy") is not None:
-        weight_terms.append((priorities["income_proxy"], income))
+        weight_terms.append((priorities["income_proxy"], land_use))
 
     total_weight = sum(w for w, _ in weight_terms)
     priority_weighted = (
@@ -296,9 +313,9 @@ def _score_candidate(slots: dict, cache: dict, priorities: dict, current_crops: 
 
 
 def _is_dominated(a: dict, b: dict) -> bool:
-    """True if candidate b dominates candidate a (b >= a on all 4 sub-scores,
+    """True if candidate b dominates candidate a (b >= a on all 5 sub-scores,
     strictly greater on at least one)."""
-    keys = ["water_fit", "heat_risk", "soil_health", "soil_suitability"]
+    keys = ["water_fit", "heat_risk", "soil_health", "soil_suitability", "land_use"]
     all_ge = all(b["sub_scores"][k] >= a["sub_scores"][k] for k in keys)
     any_gt = any(b["sub_scores"][k] > a["sub_scores"][k] for k in keys)
     return all_ge and any_gt
