@@ -10,8 +10,7 @@ import re
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.requests import Request
+from starlette.datastructures import MutableHeaders
 
 from app.core.config import get_settings
 from app.routers import advisor, climate, crops, farm, health, ndvi, report, rotations, soil
@@ -27,17 +26,44 @@ settings = get_settings()
 VERCEL_PREVIEW_RE = re.compile(r"^https://([a-z0-9-]+\.)*vercel\.app$")
 
 
-class VercelPreviewCORSMiddleware(BaseHTTPMiddleware):
+class VercelPreviewCORSMiddleware:
     """Allows any *.vercel.app origin (preview deployments have unpredictable
-    subdomains) in addition to the fixed allow-list handled by CORSMiddleware."""
+    subdomains) in addition to the fixed allow-list handled by CORSMiddleware.
 
-    async def dispatch(self, request: Request, call_next):
-        origin = request.headers.get("origin")
-        response = await call_next(request)
-        if origin and VERCEL_PREVIEW_RE.match(origin):
-            response.headers["Access-Control-Allow-Origin"] = origin
-            response.headers["Vary"] = "Origin"
-        return response
+    Pure ASGI (not `BaseHTTPMiddleware`) deliberately: `BaseHTTPMiddleware`
+    buffers/re-streams the whole response through an in-memory channel,
+    which was observed (verified live, 2026-11-14) to intermittently drop
+    `CORSMiddleware`'s own `Access-Control-Allow-Origin` header -- but only
+    for POST /report/pdf's raw-bytes `Response` with a `Content-Disposition`
+    header, and only for the real browser request, not curl/http.client --
+    causing the actual PDF POST (not the preflight) to fail client-side with
+    a CORS error after a real response had already left the server. Plain
+    ASGI middleware just forwards messages through `send`, so it can't
+    perturb timing/framing for any other middleware in the stack.
+    """
+
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+
+        origin = next((v.decode("latin-1") for k, v in scope.get("headers", []) if k == b"origin"), None)
+
+        if not origin or not VERCEL_PREVIEW_RE.match(origin):
+            await self.app(scope, receive, send)
+            return
+
+        async def send_wrapper(message):
+            if message["type"] == "http.response.start":
+                headers = MutableHeaders(raw=message["headers"])
+                headers["Access-Control-Allow-Origin"] = origin
+                headers.append("Vary", "Origin")
+            await send(message)
+
+        await self.app(scope, receive, send_wrapper)
 
 
 app.add_middleware(VercelPreviewCORSMiddleware)
