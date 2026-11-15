@@ -113,9 +113,18 @@ async def complete_json(messages: list[dict], max_tokens: int = 3000) -> tuple[d
 
 def _parse_json_object(content: str) -> dict:
     try:
-        return json.loads(content)
+        parsed = json.loads(content)
     except json.JSONDecodeError:
         start, end = content.find("{"), content.rfind("}")
         if start != -1 and end != -1 and end > start:
-            return json.loads(content[start : end + 1])
-        raise
+            parsed = json.loads(content[start : end + 1])
+        else:
+            raise
+    if not isinstance(parsed, dict):
+        # response_format={"type": "json_object"} is supposed to guarantee a
+        # JSON *object*, but a model can still legally emit valid JSON that
+        # isn't one (e.g. a bare array) -- treat that the same as a parse
+        # failure so it triggers the existing fallback-model retry in
+        # complete_json, rather than crashing the caller's dict.get() later.
+        raise ValueError(f"expected a JSON object, got {type(parsed).__name__}")
+    return parsed

@@ -37,7 +37,7 @@ FACTS = {
 
 KB_USED = [
     {"id": "fao56_02", "source": "FAO-56", "statement": "..."},
-    {"id": "residue_som_01", "source": "crop residue and soil organic matter", "statement": "..."},
+    {"id": "residue_som_01", "source": "FAO guidance on crop residues and soil organic matter", "statement": "..."},
 ]
 
 GOOD_TEXT = (
@@ -125,3 +125,31 @@ def test_urdu_guarantee_language_is_flagged():
     text = "اس ترتیب سے یقینی طور پر زیادہ منافع ہوگا۔ مقامی زرعی توسیعی اہلکار سے تصدیق کریں۔"
     result = verify_output(text, "", FACTS, KB_USED)
     assert result["verified"] is False
+
+
+def test_farmer_text_containing_the_word_kb_is_flagged():
+    text = GOOD_TEXT + " KB basis: FAO-56."
+    result = verify_output(text, "", FACTS, KB_USED)
+    assert result["verified"] is False
+    assert any("KB" in i for i in result["issues"])
+
+
+def test_farmer_text_containing_internal_kb_id_is_flagged():
+    text = GOOD_TEXT.replace("(FAO-56)", "(residue_som_01)")
+    result = verify_output(text, "", FACTS, KB_USED)
+    assert result["verified"] is False
+    assert any("residue_som_01" in i for i in result["issues"])
+
+
+def test_farmer_text_containing_raw_data_source_id_is_flagged():
+    text = GOOD_TEXT + " Source: nasa_power."
+    result = verify_output(text, "", FACTS, KB_USED)
+    assert result["verified"] is False
+    assert any("nasa_power" in i for i in result["issues"])
+
+
+def test_technical_note_may_still_say_kb_basis():
+    # The word "KB" and precise source labels are fine in technical_note --
+    # that section is explicitly for an extension officer, not the farmer.
+    result = verify_output(GOOD_TEXT, "KB basis: FAO-56. Confirm with a local extension officer.", FACTS, KB_USED)
+    assert result["verified"] is True, result["issues"]

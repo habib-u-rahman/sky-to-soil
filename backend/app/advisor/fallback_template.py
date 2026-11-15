@@ -35,13 +35,13 @@ def select_fallback_kb(facts: dict) -> list[dict]:
 
     priority: list[str] = []
     if sub_scores.get("water_fit", 100) < 75:
-        priority.append("water-saving practices")
+        priority.append("FAO guidance on water-saving irrigation practices")
     if sub_scores.get("heat_risk", 100) < 75:
-        priority.append("heat stress at flowering")
+        priority.append("Agronomic research on heat stress at flowering")
     if legumes:
-        priority.append("legume nitrogen fixation")
-    priority.append("crop diversity and pest breaks")
-    priority.append("crop residue and soil organic matter")
+        priority.append("Agronomic guidance on legume nitrogen fixation")
+    priority.append("Agronomic guidance on crop diversity and pest-cycle breaks")
+    priority.append("FAO guidance on crop residues and soil organic matter")
     priority.append("FAO conservation agriculture")
 
     picked, seen = [], set()

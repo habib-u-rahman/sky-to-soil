@@ -14,6 +14,8 @@ Checks:
 4. No yield/profit guarantee language (English or Urdu).
 5. Must include a line recommending confirmation with a local extension
    officer.
+6. farmer_text must never contain the word "KB" or a KB entry's internal
+   "id" -- only its human-readable "source" name.
 """
 
 from __future__ import annotations
@@ -90,11 +92,11 @@ SOURCE_CITATION_PATTERNS = {
     "sky_to_soil_rotation_optimizer": [r"sky-to-soil", r"rotation optimizer"],
     "FAO-56": [r"fao-?56"],
     "FAO conservation agriculture": [r"fao conservation agriculture", r"conservation agriculture"],
-    "legume nitrogen fixation": [r"nitrogen fixation", r"rhizobia"],
-    "crop residue and soil organic matter": [r"soil organic matter", r"\bsom\b"],
-    "crop diversity and pest breaks": [r"pest break", r"disease carryover"],
-    "heat stress at flowering": [r"heat stress at flowering"],
-    "water-saving practices": [r"water-saving"],
+    "Agronomic guidance on legume nitrogen fixation": [r"nitrogen fixation", r"rhizobia"],
+    "FAO guidance on crop residues and soil organic matter": [r"soil organic matter", r"\bsom\b"],
+    "Agronomic guidance on crop diversity and pest-cycle breaks": [r"pest break", r"disease carryover"],
+    "Agronomic research on heat stress at flowering": [r"heat stress at flowering"],
+    "FAO guidance on water-saving irrigation practices": [r"water-saving"],
 }
 
 
@@ -198,6 +200,39 @@ def _check_extension_officer_mention(full_text: str) -> list[str]:
     return ["missing a recommendation to confirm with a local extension officer"]
 
 
+_KB_WORD_RE = re.compile(r"\bKB\b")
+
+# Raw snake_case data-source ids (see facts["data_sources"]) -- a farmer
+# should see "NASA POWER", never "nasa_power". prompts.py already renders
+# these as display names before the model sees them, but that's prompt
+# guidance only; this is the mechanical backstop.
+RAW_DATA_SOURCE_IDS = (
+    "nasa_power",
+    "isric_soilgrids",
+    "sky_to_soil_rotation_optimizer",
+    "ornl_modis_mod13q1",
+    "usda_fao_texture_class_typical_values",
+)
+
+
+def _check_no_internal_jargon_in_farmer_text(farmer_text: str, kb_entries: list[dict]) -> list[str]:
+    """The farmer should never see the word "KB", a KB entry's internal
+    "id" (e.g. "residue_som_01"), or a raw snake_case data-source id (e.g.
+    "nasa_power") -- only human-readable source names. Does not apply to
+    technical_note, which is deliberately denser/for an extension officer."""
+    issues = []
+    if _KB_WORD_RE.search(farmer_text):
+        issues.append('farmer_text contains the word "KB", which a farmer should never see')
+    lowered = farmer_text.lower()
+    for entry in kb_entries:
+        if entry["id"].lower() in lowered:
+            issues.append(f"farmer_text contains internal KB id '{entry['id']}' instead of its source name")
+    for source_id in RAW_DATA_SOURCE_IDS:
+        if source_id in lowered:
+            issues.append(f"farmer_text contains raw data-source id '{source_id}' instead of its display name")
+    return issues
+
+
 def verify_output(
     farmer_text: str,
     technical_note: str,
@@ -217,6 +252,7 @@ def verify_output(
     issues += _check_crop_names(combined_text, facts)
     issues += _check_sources(combined_text, kb_sources, data_sources)
     issues += _check_guarantee_language(combined_text)
+    issues += _check_no_internal_jargon_in_farmer_text(farmer_text, kb_entries)
     if require_extension_officer:
         issues += _check_extension_officer_mention(combined_text)
 

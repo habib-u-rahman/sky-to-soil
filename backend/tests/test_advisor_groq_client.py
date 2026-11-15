@@ -73,6 +73,49 @@ async def test_complete_json_retries_fallback_model_on_primary_failure(monkeypat
     assert call_log == ["model-a", "model-b"]
 
 
+async def test_complete_json_retries_fallback_when_primary_returns_a_json_array(monkeypatch):
+    """response_format={"type": "json_object"} is supposed to guarantee an
+    object, but a model can still legally emit a bare JSON array. That must
+    be treated as a failure (triggering the fallback model), not crash the
+    caller's dict.get() later."""
+    monkeypatch.setattr(groq_client, "select_models", AsyncMock(return_value=("model-a", "model-b")))
+
+    class FakeMessage:
+        def __init__(self, content):
+            self.content = content
+
+    class FakeChoice:
+        def __init__(self, content):
+            self.message = FakeMessage(content)
+
+    class FakeResponse:
+        def __init__(self, content):
+            self.choices = [FakeChoice(content)]
+
+    call_log = []
+
+    class FakeCompletions:
+        async def create(self, model, **kwargs):
+            call_log.append(model)
+            if model == "model-a":
+                return FakeResponse('[{"farmer_text": "oops"}]')
+            return FakeResponse('{"farmer_text": "ok", "technical_note": "ok"}')
+
+    class FakeChat:
+        completions = FakeCompletions()
+
+    class FakeClient:
+        chat = FakeChat()
+
+    monkeypatch.setattr(groq_client, "_client", lambda: FakeClient())
+
+    parsed, model_used = await groq_client.complete_json([{"role": "user", "content": "hi"}])
+    assert isinstance(parsed, dict)
+    assert parsed["farmer_text"] == "ok"
+    assert model_used == "model-b"
+    assert call_log == ["model-a", "model-b"]
+
+
 async def test_complete_json_raises_when_both_models_fail(monkeypatch):
     monkeypatch.setattr(groq_client, "select_models", AsyncMock(return_value=("model-a", "model-b")))
 

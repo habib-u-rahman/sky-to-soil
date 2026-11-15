@@ -69,7 +69,7 @@ def test_select_fallback_kb_returns_up_to_4_entries():
 def test_select_fallback_kb_prioritizes_legume_when_present():
     kb = select_fallback_kb(FACTS_WITH_LEGUME)
     sources = [e["source"] for e in kb]
-    assert "legume nitrogen fixation" in sources
+    assert "Agronomic guidance on legume nitrogen fixation" in sources
 
 
 def test_fallback_explain_passes_verify_in_english():

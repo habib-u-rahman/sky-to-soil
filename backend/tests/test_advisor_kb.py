@@ -16,11 +16,11 @@ def test_kb_covers_all_required_topic_categories():
     required = {
         "FAO-56",
         "FAO conservation agriculture",
-        "legume nitrogen fixation",
-        "crop residue and soil organic matter",
-        "crop diversity and pest breaks",
-        "heat stress at flowering",
-        "water-saving practices",
+        "Agronomic guidance on legume nitrogen fixation",
+        "FAO guidance on crop residues and soil organic matter",
+        "Agronomic guidance on crop diversity and pest-cycle breaks",
+        "Agronomic research on heat stress at flowering",
+        "FAO guidance on water-saving irrigation practices",
     }
     sources = {entry["source"] for entry in load_kb()}
     assert required.issubset(sources)
@@ -33,13 +33,13 @@ def test_retrieve_returns_requested_top_k():
 
 def test_retrieve_ranks_relevant_topic_first():
     results = retrieve("legume nitrogen fixation rhizobia nodules", top_k=3)
-    assert results[0]["source"] == "legume nitrogen fixation"
+    assert results[0]["source"] == "Agronomic guidance on legume nitrogen fixation"
 
 
 def test_retrieve_heat_stress_query_returns_heat_topic():
     results = retrieve("heat stress flowering critical temperature", top_k=3)
     sources = {r["source"] for r in results}
-    assert "heat stress at flowering" in sources
+    assert "Agronomic research on heat stress at flowering" in sources
 
 
 def test_retrieve_empty_query_still_returns_entries():

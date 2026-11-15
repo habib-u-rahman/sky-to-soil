@@ -26,7 +26,7 @@ LIVE_ANALYSIS = {
         "top": [
             {
                 "rotation": {"Y1_kharif": None, "Y1_rabi": "wheat", "Y2_kharif": None, "Y2_rabi": "wheat"},
-                "sub_scores": {"water_fit": 40.5, "heat_risk": 80.0, "soil_health": 31.6, "soil_suitability": 65.0},
+                "sub_scores": {"water_fit": 40.5, "heat_risk": 80.0, "soil_health": 31.6, "soil_suitability": 65.0, "land_use": 27.5},
                 "base_score_0_100": 54.3,
                 "priority_weighted_score_0_100": 57.6,
                 "reasons": ["A workable rotation."],
