@@ -44,6 +44,8 @@ const ur: Dictionary = {
     optional: "اختیاری",
     required: "لازمی",
     poweredBy: "NASA POWER، MODIS اور ISRIC SoilGrids کا ڈیٹا",
+    aiDisclosure:
+      "AI کا انکشاف: اس ایپ کا زیادہ تر کوڈ لکھنے اور جانچنے میں AI کوڈنگ اسسٹنٹس (Claude) استعمال کیے گئے۔ AI زرعی ماہر کی خصوصیت ایک بڑے لینگویج ماڈل (Groq کے ذریعے openai/gpt-oss-120b) کا استعمال کرتی ہے؛ دکھانے سے پہلے ہر جواب اس فارم کے حقیقی ڈیٹا کے خلاف ایک اصول پر مبنی حقائق کی جانچ سے گزرتا ہے۔",
   },
   landing: {
     kicker: "NASA Space Apps 2026 · Field Shift",
@@ -53,7 +55,7 @@ const ur: Dictionary = {
     heroCta: "ڈیمو فارم آزمائیں",
     heroSecondaryCta: "میرا فارم بنائیں",
     statLocationsLabel: "فیصل آباد ڈیمو فارم",
-    statLocationsValue: "31.42°N, 73.08°E",
+    statLocationsValue: "31.31°N, 73.21°E",
     statCropsLabel: "نالج بیس میں فصلیں",
     statCropsValue: "14",
     statYearsLabel: "ناسا موسمیاتی ڈیٹا کے سال",
@@ -269,6 +271,12 @@ const ur: Dictionary = {
   },
   states: {
     loadingFarm: "اس مقام کے لیے موسم، مٹی اور نباتاتی ڈیٹا حاصل کیا جا رہا ہے…",
+    wakingServer: "تجزیاتی سرور کو جگایا جا رہا ہے — غیر فعال رہنے کے بعد پہلی درخواست میں 60 سیکنڈ تک لگ سکتے ہیں۔ تحمل کا شکریہ۔",
+    progressStep1: "NASA کے 24 سالہ موسمیاتی ڈیٹا حاصل کیا جا رہا ہے…",
+    progressStep2: "سیٹلائٹ نباتاتی تاریخ (MODIS) پڑھی جا رہی ہے…",
+    progressStep3: "مقامی مٹی کا ڈیٹا چیک کیا جا رہا ہے…",
+    progressStep4: "3,021 ممکنہ 2 سالہ فصل کی ترتیبوں کا اسکور نکالا جا رہا ہے…",
+    progressStep5: "آپ کا فارم پلان حتمی شکل دیا جا رہا ہے…",
     errorTitle: "ہم یہ لوڈ نہیں کر سکے",
     errorDesc: "ڈیٹا کا ذریعہ عارضی طور پر دستیاب نہیں ہو سکتا۔ آپ دوبارہ کوشش کر سکتے ہیں، یا ڈیمو فارم کے ساتھ جاری رکھ سکتے ہیں۔",
     emptyTitle: "ابھی دکھانے کے لیے کچھ نہیں",

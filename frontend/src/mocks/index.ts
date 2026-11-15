@@ -6,6 +6,9 @@
  * placeholders. Re-copy that file here if the backend demo data changes.
  */
 import type {
+  AdvisorChatResponse,
+  AdvisorExplainResponse,
+  AdvisorLanguage,
   ClimateShiftResponse,
   CropProfile,
   CropsListResponse,
@@ -20,8 +23,24 @@ import type {
 import demoAnalysisRaw from "./demo_analysis.json";
 import cropsRaw from "./crops.json";
 
-const demoAnalysis = demoAnalysisRaw as unknown as FarmAnalyzeResponse;
+interface DemoAnalysisRaw extends FarmAnalyzeResponse {
+  advisor_explain?: Record<string, Partial<Record<AdvisorLanguage, AdvisorExplainResponse>>>;
+  advisor_chat?: Record<AdvisorLanguage, { question: string; response: AdvisorChatResponse }[]>;
+}
+
+const demoAnalysis = demoAnalysisRaw as unknown as DemoAnalysisRaw;
 const crops = cropsRaw as unknown as CropProfile[];
+
+/** Precomputed AI Agronomist output for the #1 rotation ("top_0"), bundled
+ * straight into the frontend build. This is what lets the agronomist panel
+ * answer instantly for the demo farm even when the backend (and therefore
+ * the live Groq call) is unreachable -- see lib/api-client.ts's demo-mode
+ * fallback. Any rotation other than "top_0", or any chat question not in
+ * the precomputed list below, has no offline answer; the backend has to
+ * actually be reachable for those. */
+export const mockAdvisorExplainTop0 = demoAnalysis.advisor_explain?.top_0 ?? {};
+
+export const mockAdvisorChatByQuestion = demoAnalysis.advisor_chat ?? ({} as Record<AdvisorLanguage, { question: string; response: AdvisorChatResponse }[]>);
 
 export const mockHealth: HealthResponse = {
   status: "ok",

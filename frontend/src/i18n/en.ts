@@ -42,6 +42,8 @@ const en = {
     optional: "optional",
     required: "required",
     poweredBy: "Data from NASA POWER, MODIS & ISRIC SoilGrids",
+    aiDisclosure:
+      "AI disclosure: AI coding assistants (Claude) were used to help write and test much of this app. The AI agronomist feature uses a large language model (openai/gpt-oss-120b via Groq); every answer is checked by a rule-based fact-checker against this farm's real data before being shown.",
   },
   landing: {
     kicker: "NASA Space Apps 2026 · Field Shift",
@@ -51,7 +53,7 @@ const en = {
     heroCta: "Try the demo farm",
     heroSecondaryCta: "Plan my farm",
     statLocationsLabel: "Faisalabad demo farm",
-    statLocationsValue: "31.42°N, 73.08°E",
+    statLocationsValue: "31.31°N, 73.21°E",
     statCropsLabel: "Crops in the knowledge base",
     statCropsValue: "14",
     statYearsLabel: "Years of NASA climate data",
@@ -267,6 +269,12 @@ const en = {
   },
   states: {
     loadingFarm: "Fetching climate, soil and vegetation data for this location…",
+    wakingServer: "Waking up the analysis server — the first request after it's been idle can take up to 60 seconds. Thanks for your patience.",
+    progressStep1: "Fetching 24 years of NASA climate data…",
+    progressStep2: "Reading satellite vegetation history (MODIS)…",
+    progressStep3: "Checking local soil data…",
+    progressStep4: "Scoring 3,021 possible 2-year rotations…",
+    progressStep5: "Finalizing your farm plan…",
     errorTitle: "We couldn't load this",
     errorDesc: "The data source may be temporarily unavailable. You can try again, or continue with the demo farm.",
     emptyTitle: "Nothing to show yet",

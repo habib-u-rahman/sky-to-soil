@@ -2,11 +2,21 @@
 
 import { ArrowRight, Satellite } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/i18n";
+import { wakeBackend } from "@/lib/api-client";
 
 export function Hero() {
   const { t } = useI18n();
+
+  // Render's free tier sleeps after inactivity. Nudge it awake as soon as
+  // a visitor lands, so by the time they click through the setup wizard
+  // (a minute or so of clicking) the backend has had a head start on its
+  // cold-start wake-up instead of starting it cold at analyze-time.
+  useEffect(() => {
+    wakeBackend();
+  }, []);
 
   const stats = [
     { label: t("landing.statLocationsLabel"), value: t("landing.statLocationsValue") },

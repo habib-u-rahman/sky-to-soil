@@ -4,6 +4,7 @@ import { ArrowRight, Pencil } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { AnalysisProgress } from "@/components/dashboard/analysis-progress";
 import { ClimateKpiGrid } from "@/components/dashboard/climate-kpis";
 import { HotDaysChart, RainfallChart, RootZoneWetnessChart, TemperatureChart, TrendSignals } from "@/components/dashboard/climate-charts";
 import { NdviChart, NdviYearOverYearChart } from "@/components/dashboard/ndvi-chart";
@@ -68,7 +69,7 @@ export function DashboardContent() {
         </div>
       </div>
 
-      {status === "loading" && (
+      {status === "loading" && isDemo && (
         <div className="space-y-6">
           <p className="text-sm text-muted-foreground">{t("states.loadingFarm")}</p>
           <KpiGridSkeleton />
@@ -79,6 +80,12 @@ export function DashboardContent() {
           <Skeleton className="h-64 w-full" />
         </div>
       )}
+
+      {/* A live (non-demo) analysis genuinely takes ~70s, plus up to ~60s
+          more if Render's free tier has to wake from a cold start -- show
+          staged progress instead of an indefinite skeleton so this doesn't
+          read as frozen. */}
+      {status === "loading" && !isDemo && <AnalysisProgress />}
 
       {status === "error" && <ErrorState description={error ?? undefined} onRetry={retry} />}
 
