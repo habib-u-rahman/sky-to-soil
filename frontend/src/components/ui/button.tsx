@@ -43,11 +43,18 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  nativeButton,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
     <ButtonPrimitive
       data-slot="button"
+      // Base UI defaults to assuming it renders a real <button>. Every
+      // `render={<Link .../>}` usage in this app composes onto an <a>
+      // instead, which otherwise trips Base UI's own dev warning about
+      // losing native button semantics -- default to false whenever a
+      // custom render target is given, but let callers override either way.
+      nativeButton={nativeButton ?? !props.render}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />

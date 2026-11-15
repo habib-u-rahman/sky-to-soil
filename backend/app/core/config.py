@@ -31,7 +31,10 @@ class Settings(BaseSettings):
 
     @property
     def cors_origins(self) -> list[str]:
-        origins = ["http://localhost:3000"]
+        # Next.js dev falls back to :3001, :3002, ... whenever :3000 is
+        # already taken by another local process -- allow the common range
+        # so a port collision doesn't look like a backend outage.
+        origins = [f"http://localhost:{port}" for port in range(3000, 3006)]
         if self.extra_cors_origins:
             origins.extend(o.strip() for o in self.extra_cors_origins.split(",") if o.strip())
         return origins
