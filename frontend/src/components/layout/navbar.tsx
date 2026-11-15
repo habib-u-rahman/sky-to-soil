@@ -49,7 +49,7 @@ export function Navbar() {
         <div className="flex items-center gap-1">
           <LanguageToggle />
           <ThemeToggle />
-          <Button render={<Link href="/setup" />} size="sm" className="hidden sm:inline-flex">
+          <Button render={<Link href="/dashboard?demo=true" />} size="sm" className="hidden sm:inline-flex">
             {t("nav.tryDemo")}
           </Button>
 
@@ -73,7 +73,7 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Button render={<Link href="/setup" />} className="mt-4">
+                <Button render={<Link href="/dashboard?demo=true" />} className="mt-4">
                   {t("nav.tryDemo")}
                 </Button>
               </nav>
