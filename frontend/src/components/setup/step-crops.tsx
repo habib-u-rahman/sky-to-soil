@@ -66,7 +66,7 @@ export function StepCrops({ value, onChange }: StepCropsProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold text-foreground">{t("setup.cropsTitle")}</h2>
+        <h2 className="font-heading text-2xl font-semibold text-foreground">{t("setup.cropsTitle")}</h2>
         <p className="mt-1 text-sm text-muted-foreground">{t("setup.cropsDesc")}</p>
       </div>
 

@@ -10,7 +10,7 @@
   --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   /* --font-urdu intentionally omitted from @theme inline: it is applied directly via var(--font-noto-nastaliq-urdu) below to avoid Tailwind v4's @theme-inline runtime-var resolution gotcha. */
-  --font-heading: var(--font-sans);
+  --font-heading: "Fraunces", "Fraunces Fallback", ui-serif, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -164,5 +164,33 @@
      site-wide language switch. */
   .font-urdu {
     font-family: var(--font-noto-nastaliq-urdu), "Noto Naskh Arabic", serif;
+  }
+
+  /* Faint film-grain texture -- keeps large flat-color hero/CTA surfaces
+     from reading as a plain digital gradient. Pure CSS, no network
+     request, so it never breaks offline/demo mode. */
+  .bg-grain {
+    position: relative;
+  }
+  .bg-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  :root:not([data-theme="light"]) .bg-grain::before {
+    mix-blend-mode: overlay;
+    opacity: 0.08;
+  }
+
+  /* Rolling-contour-line motif, evoking a topographic/field-survey map --
+     a quiet, on-theme substitute for a hero photograph we don't have. */
+  .bg-contours {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Cg fill='none' stroke='%232f6b45' stroke-width='1'%3E%3Cpath d='M-20,40 C80,10 120,70 220,45 C300,25 340,60 420,35'/%3E%3Cpath d='M-20,90 C70,65 130,115 220,95 C310,75 350,105 420,85'/%3E%3Cpath d='M-20,140 C90,120 150,160 230,140 C300,122 350,150 420,132'/%3E%3Cpath d='M-20,190 C60,175 140,205 220,188 C300,172 350,196 420,180'/%3E%3Cpath d='M-20,240 C80,228 150,252 230,238 C300,226 350,246 420,232'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 480px 360px;
+    background-repeat: repeat;
   }
 }

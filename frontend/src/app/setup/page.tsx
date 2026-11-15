@@ -47,7 +47,7 @@ export default function SetupPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground">{t("setup.title")}</h1>
+        <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground">{t("setup.title")}</h1>
         <button
           type="button"
           onClick={() => {

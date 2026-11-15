@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -15,6 +15,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Warm, slightly organic display serif for headings only -- Geist Sans
+// stays the body/UI font. This single pairing is what separates "a
+// designer chose this" from "the default template," more than any color
+// or spacing tweak.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["SOFT", "WONK"],
 });
 
 const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
@@ -35,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       dir="ltr"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${notoNastaliqUrdu.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${notoNastaliqUrdu.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

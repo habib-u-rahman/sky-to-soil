@@ -57,7 +57,7 @@ export function StepLocation({ location, onChange }: StepLocationProps) {
   return (
     <div className="space-y-5">
       <div>
-        <h2 className="text-xl font-semibold text-foreground">{t("setup.locationTitle")}</h2>
+        <h2 className="font-heading text-2xl font-semibold text-foreground">{t("setup.locationTitle")}</h2>
         <p className="mt-1 text-sm text-muted-foreground">{t("setup.locationDesc")}</p>
       </div>
 
