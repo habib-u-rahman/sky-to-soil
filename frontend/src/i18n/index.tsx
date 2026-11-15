@@ -36,6 +36,15 @@ function interpolate(template: string, vars?: Record<string, string | number>): 
   });
 }
 
+/** Translate for an EXPLICIT locale, independent of the site-wide language
+ * context. For UI that has its own language concept distinct from the
+ * site's (e.g. the agronomist panel's "reply language", which can differ
+ * from the site locale -- a user can browse the site in English while
+ * reading AI explanations in Urdu). Use `useI18n().t` for everything else. */
+export function translateFor(locale: Locale, path: string, vars?: Record<string, string | number>): string {
+  return interpolate(resolve(DICTIONARIES[locale], path), vars);
+}
+
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 

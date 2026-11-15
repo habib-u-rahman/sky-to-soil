@@ -14,8 +14,10 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useFarmAnalysis } from "@/hooks/use-farm-analysis";
 import { useCrops } from "@/hooks/use-crops";
 import { useI18n } from "@/i18n";
+import { allCurrentCrops } from "@/lib/farm-store";
+import { useFarmStore } from "@/lib/farm-store";
 import { rotationKey } from "@/lib/rotation-key";
-import type { ScoredRotation, StressedRotationResult } from "@/types/api";
+import type { RotationId, ScoredRotation, StressedRotationResult } from "@/types/api";
 
 const SORT_FIELD: Record<RotationSort, (r: ScoredRotation) => number> = {
   score: (r) => r.priority_weighted_score_0_100,
@@ -24,17 +26,23 @@ const SORT_FIELD: Record<RotationSort, (r: ScoredRotation) => number> = {
   heat: (r) => r.sub_scores.heat_risk,
 };
 
+interface ListedRotation {
+  id: RotationId;
+  rotation: ScoredRotation;
+}
+
 export function RotationsContent() {
   const { t } = useI18n();
   const router = useRouter();
-  const { data, status, error, hasFarm, retry } = useFarmAnalysis();
+  const { data, status, error, hasFarm, retry, isDemo } = useFarmAnalysis();
   const crops = useCrops();
+  const currentCrops = useFarmStore((s) => s.currentCrops);
 
   const [filter, setFilter] = useState<RotationFilter>("top");
   const [sort, setSort] = useState<RotationSort>("score");
   const [selected, setSelected] = useState<string[]>([]);
   const [compareOpen, setCompareOpen] = useState(false);
-  const [detailsRotation, setDetailsRotation] = useState<ScoredRotation | null>(null);
+  const [detailsRotation, setDetailsRotation] = useState<ListedRotation | null>(null);
 
   const stressByKey = useMemo(() => {
     const map = new Map<string, StressedRotationResult>();
@@ -46,13 +54,18 @@ export function RotationsContent() {
     return map;
   }, [data]);
 
-  const list = useMemo(() => {
+  // rotation_id (e.g. "top_3") must reflect the ORIGINAL index in
+  // rotations.top / .pareto_optimal -- the backend resolves it that way --
+  // so it's computed here, before the display-only sort below.
+  const list = useMemo<ListedRotation[]>(() => {
     if (!data?.rotations) return [];
+    const prefix = filter === "top" ? "top" : "pareto";
     const base = filter === "top" ? data.rotations.top : data.rotations.pareto_optimal;
-    return [...base].sort((a, b) => SORT_FIELD[sort](b) - SORT_FIELD[sort](a));
+    const withIds = base.map((rotation, index) => ({ id: `${prefix}_${index}`, rotation }));
+    return withIds.sort((a, b) => SORT_FIELD[sort](b.rotation) - SORT_FIELD[sort](a.rotation));
   }, [data, filter, sort]);
 
-  const selectedRotations = list.filter((r) => selected.includes(rotationKey(r.rotation)));
+  const selectedRotations = list.filter((r) => selected.includes(rotationKey(r.rotation.rotation))).map((r) => r.rotation);
 
   function toggleSelect(key: string) {
     setSelected((prev) => {
@@ -130,18 +143,18 @@ export function RotationsContent() {
             <EmptyState title={t("rotations.noResults")} />
           ) : (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {list.map((rotation) => {
-                const key = rotationKey(rotation.rotation);
+              {list.map((item) => {
+                const key = rotationKey(item.rotation.rotation);
                 return (
                   <RotationCard
-                    key={key}
-                    rotation={rotation}
+                    key={item.id}
+                    rotation={item.rotation}
                     crops={crops}
                     stressResult={stressByKey.get(key)}
                     isSelected={selected.includes(key)}
                     onToggleSelect={() => toggleSelect(key)}
                     compareDisabled={selected.length >= 2}
-                    onViewDetails={() => setDetailsRotation(rotation)}
+                    onViewDetails={() => setDetailsRotation(item)}
                   />
                 );
               })}
@@ -151,9 +164,18 @@ export function RotationsContent() {
           <RotationCompare open={compareOpen} onOpenChange={setCompareOpen} rotations={selectedRotations} crops={crops} />
 
           <Sheet open={!!detailsRotation} onOpenChange={(open) => !open && setDetailsRotation(null)}>
-            <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
+            <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-lg">
               <div className="p-5">
-                <AgronomistPanel rotation={detailsRotation} crops={crops} />
+                {detailsRotation && data && (
+                  <AgronomistPanel
+                    rotationId={detailsRotation.id}
+                    rotation={detailsRotation.rotation}
+                    crops={crops}
+                    analysis={data}
+                    currentCrops={allCurrentCrops(currentCrops)}
+                    isDemo={isDemo}
+                  />
+                )}
               </div>
             </SheetContent>
           </Sheet>

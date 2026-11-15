@@ -157,3 +157,12 @@
     font-family: var(--font-noto-nastaliq-urdu), "Noto Naskh Arabic", serif;
   }
 }
+
+@layer utilities {
+  /* For Urdu text rendered inside an otherwise-English page (e.g. the
+     agronomist panel's own reply-language toggle), independent of the
+     site-wide language switch. */
+  .font-urdu {
+    font-family: var(--font-noto-nastaliq-urdu), "Noto Naskh Arabic", serif;
+  }
+}
