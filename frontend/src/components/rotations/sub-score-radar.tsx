@@ -12,6 +12,7 @@ export function SubScoreRadar({ subScores }: { subScores: RotationSubScores }) {
     { metric: t("rotations.heatRisk"), value: subScores.heat_risk },
     { metric: t("rotations.soilHealth"), value: subScores.soil_health },
     { metric: t("rotations.soilSuitability"), value: subScores.soil_suitability },
+    { metric: t("rotations.landUse"), value: subScores.land_use },
   ];
 
   return (
@@ -34,6 +35,7 @@ export function SubScoreBars({ subScores }: { subScores: RotationSubScores }) {
     { label: t("rotations.heatRisk"), value: subScores.heat_risk },
     { label: t("rotations.soilHealth"), value: subScores.soil_health },
     { label: t("rotations.soilSuitability"), value: subScores.soil_suitability },
+    { label: t("rotations.landUse"), value: subScores.land_use },
   ];
 
   return (

@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { ClimateKpiGrid } from "@/components/dashboard/climate-kpis";
-import { HotDaysChart, RainfallChart, TempWetnessChart, TrendSignals } from "@/components/dashboard/climate-charts";
-import { NdviChart } from "@/components/dashboard/ndvi-chart";
+import { HotDaysChart, RainfallChart, RootZoneWetnessChart, TemperatureChart, TrendSignals } from "@/components/dashboard/climate-charts";
+import { NdviChart, NdviYearOverYearChart } from "@/components/dashboard/ndvi-chart";
 import { SoilProfileCard } from "@/components/dashboard/soil-profile-card";
 import { ExportButton } from "@/components/export/export-button";
 import { EmptyState } from "@/components/shared/empty-state";
@@ -52,7 +52,7 @@ export function DashboardContent() {
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">{t("dashboard.title")}</h1>
+          <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground">{t("dashboard.title")}</h1>
           <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.subtitle")}</p>
         </div>
         <div className="flex gap-2">
@@ -103,7 +103,8 @@ export function DashboardContent() {
 
           {data.climate && (
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <TempWetnessChart climate={data.climate} />
+              <TemperatureChart climate={data.climate} />
+              <RootZoneWetnessChart climate={data.climate} />
               <HotDaysChart climate={data.climate} />
               <RainfallChart climate={data.climate} />
               <TrendSignals climate={data.climate} />
@@ -111,6 +112,7 @@ export function DashboardContent() {
           )}
 
           {data.ndvi && <NdviChart ndvi={data.ndvi} />}
+          {data.ndvi && <NdviYearOverYearChart ndvi={data.ndvi} />}
 
           {data.soil && <SoilProfileCard soil={data.soil} />}
         </div>

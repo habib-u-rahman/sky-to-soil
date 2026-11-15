@@ -23,25 +23,20 @@ interface ClimateChartsProps {
   climate: ClimateShiftResponse;
 }
 
-export function TempWetnessChart({ climate }: ClimateChartsProps) {
+export function TemperatureChart({ climate }: ClimateChartsProps) {
   const { t } = useI18n();
   const { baseline, recent } = climate;
 
   const data = [
     {
-      name: `${t("dashboard.kpiTempChange")} max (°C)`,
+      name: `${t("dashboard.kpiTempChange")} max`,
       then: baseline.mean_tmax_c ?? 0,
       now: recent.mean_tmax_c ?? 0,
     },
     {
-      name: `${t("dashboard.kpiTempChange")} min (°C)`,
+      name: `${t("dashboard.kpiTempChange")} min`,
       then: baseline.mean_tmin_c ?? 0,
       now: recent.mean_tmin_c ?? 0,
-    },
-    {
-      name: `${t("dashboard.kpiSoilWetness")} (×100)`,
-      then: (baseline.mean_root_zone_wetness ?? 0) * 100,
-      now: (recent.mean_root_zone_wetness ?? 0) * 100,
     },
   ];
 
@@ -58,9 +53,59 @@ export function TempWetnessChart({ climate }: ClimateChartsProps) {
           <BarChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
             <XAxis dataKey="name" tick={{ fontSize: 11, fill: "var(--muted-foreground)" }} />
-            <YAxis tick={{ fontSize: 11, fill: "var(--muted-foreground)" }} />
+            <YAxis
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              unit="°C"
+              label={{ value: "°C", angle: -90, position: "insideLeft", fontSize: 11, fill: "var(--muted-foreground)" }}
+            />
             <Tooltip
               contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12 }}
+              formatter={(value) => [`${Number(value).toFixed(1)}°C`, ""]}
+            />
+            <Legend wrapperStyle={{ fontSize: 12 }} formatter={(value) => (value === "then" ? t("dashboard.thenLabel") : t("dashboard.nowLabel"))} />
+            <Bar dataKey="then" name="then" fill={THEN_COLOR} radius={[4, 4, 0, 0]} />
+            <Bar dataKey="now" name="now" fill={NOW_COLOR} radius={[4, 4, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function RootZoneWetnessChart({ climate }: ClimateChartsProps) {
+  const { t } = useI18n();
+  const { baseline, recent } = climate;
+
+  const data = [
+    {
+      name: t("dashboard.kpiSoilWetness"),
+      then: Math.round((baseline.mean_root_zone_wetness ?? 0) * 1000) / 10,
+      now: Math.round((recent.mean_root_zone_wetness ?? 0) * 1000) / 10,
+    },
+  ];
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">{t("dashboard.chartWetnessTitle")}</CardTitle>
+        <CardDescription>
+          {t("dashboard.chartWetnessDesc", { baseline: baseline.period_label, recent: recent.period_label })}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="h-72">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+            <XAxis dataKey="name" tick={{ fontSize: 11, fill: "var(--muted-foreground)" }} />
+            <YAxis
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              unit="%"
+              domain={[0, 100]}
+              label={{ value: "%", angle: -90, position: "insideLeft", fontSize: 11, fill: "var(--muted-foreground)" }}
+            />
+            <Tooltip
+              contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12 }}
+              formatter={(value) => [`${Number(value).toFixed(1)}%`, ""]}
             />
             <Legend wrapperStyle={{ fontSize: 12 }} formatter={(value) => (value === "then" ? t("dashboard.thenLabel") : t("dashboard.nowLabel"))} />
             <Bar dataKey="then" name="then" fill={THEN_COLOR} radius={[4, 4, 0, 0]} />
@@ -102,13 +147,17 @@ export function HotDaysChart({ climate }: ClimateChartsProps) {
           <BarChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
             <XAxis dataKey="name" tick={{ fontSize: 12, fill: "var(--muted-foreground)" }} />
-            <YAxis tick={{ fontSize: 11, fill: "var(--muted-foreground)" }} />
+            <YAxis
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              unit=" days"
+              label={{ value: "days", angle: -90, position: "insideLeft", fontSize: 11, fill: "var(--muted-foreground)" }}
+            />
             <Tooltip
               contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12 }}
             />
             <Legend wrapperStyle={{ fontSize: 12 }} formatter={(value) => (value === "then" ? t("dashboard.thenLabel") : t("dashboard.nowLabel"))} />
             <Bar dataKey="then" name="then" fill={THEN_COLOR} radius={[4, 4, 0, 0]} />
-            <Bar dataKey="now" name="now" fill="var(--warning)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="now" name="now" fill={NOW_COLOR} radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
@@ -144,13 +193,17 @@ export function RainfallChart({ climate }: ClimateChartsProps) {
           <BarChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
             <XAxis dataKey="name" tick={{ fontSize: 12, fill: "var(--muted-foreground)" }} />
-            <YAxis tick={{ fontSize: 11, fill: "var(--muted-foreground)" }} unit="mm" />
+            <YAxis
+              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
+              unit=" mm"
+              label={{ value: "mm", angle: -90, position: "insideLeft", fontSize: 11, fill: "var(--muted-foreground)" }}
+            />
             <Tooltip
               contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12 }}
             />
             <Legend wrapperStyle={{ fontSize: 12 }} formatter={(value) => (value === "then" ? t("dashboard.thenLabel") : t("dashboard.nowLabel"))} />
             <Bar dataKey="then" name="then" fill={THEN_COLOR} radius={[4, 4, 0, 0]} />
-            <Bar dataKey="now" name="now" fill="var(--sky)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="now" name="now" fill={NOW_COLOR} radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

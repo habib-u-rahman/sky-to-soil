@@ -1,4 +1,4 @@
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Sprout } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useI18n } from "@/i18n";
@@ -38,22 +38,30 @@ function DepthRow({ layer, t }: { layer: SoilDepthLayer; t: (path: string) => st
 export function SoilProfileCard({ soil }: { soil: SoilProfileResponse }) {
   const { t } = useI18n();
   const isManual = soil.status === "manual_input_needed" || soil.status === "unavailable";
+  const isEstimatedFromPreset = soil.source.source === "usda_fao_texture_class_typical_values";
 
   return (
     <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">{t("dashboard.soilProfileTitle")}</CardTitle>
-          <Badge variant={isManual ? "outline" : "secondary"}>{soil.source.source}</Badge>
+          <Badge variant={isManual || isEstimatedFromPreset ? "outline" : "secondary"}>{soil.source.source}</Badge>
         </div>
         <CardDescription>{t("dashboard.soilProfileDesc")}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        {isManual && (
-          <div className="flex items-start gap-2 rounded-lg border border-warning/30 bg-warning/10 px-3 py-2 text-xs">
-            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warning" />
-            <p>{t("dashboard.soilManualBanner")}</p>
+        {isEstimatedFromPreset ? (
+          <div className="flex items-start gap-2 rounded-lg border border-crop/30 bg-crop/10 px-3 py-2 text-xs">
+            <Sprout className="mt-0.5 h-3.5 w-3.5 shrink-0 text-crop" />
+            <p>{t("dashboard.soilEstimatedBanner")}</p>
           </div>
+        ) : (
+          isManual && (
+            <div className="flex items-start gap-2 rounded-lg border border-warning/30 bg-warning/10 px-3 py-2 text-xs">
+              <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warning" />
+              <p>{t("dashboard.soilManualBanner")}</p>
+            </div>
+          )
         )}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {soil.layers.map((layer) => (
