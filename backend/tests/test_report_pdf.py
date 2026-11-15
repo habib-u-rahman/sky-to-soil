@@ -18,7 +18,12 @@ def test_report_pdf_demo_mode_returns_2_to_3_page_pdf():
     resp = client.post("/report/pdf?demo=true", json={"current_crops": ["wheat", "cotton"], "top_n": 3})
     assert resp.status_code == 200
     assert resp.headers["content-type"] == "application/pdf"
-    assert "attachment" in resp.headers["content-disposition"]
+    # No Content-Disposition: verified live that a cross-origin fetch() of a
+    # response carrying `Content-Disposition: attachment` gets blocked by at
+    # least one current Chrome build (see app/routers/report.py). The
+    # frontend sets its own filename via the blob anchor's `download`
+    # attribute, so this header is intentionally omitted.
+    assert "content-disposition" not in resp.headers
     _assert_valid_pdf(resp.content, min_pages=1, max_pages=3)
 
 

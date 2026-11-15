@@ -44,8 +44,15 @@ async def post_report_pdf(body: ReportPdfRequest, demo: bool = Query(False)):
         kb_sources = sorted({e["source"] for e in result.get("kb", [])})
 
     pdf_bytes = build_pdf_bytes(analysis, body.current_crops, body.top_n, advisor_text, technical_note, kb_sources)
-    return Response(
-        content=pdf_bytes,
-        media_type="application/pdf",
-        headers={"Content-Disposition": "attachment; filename=sky2soil_farm_plan.pdf"},
-    )
+    # No Content-Disposition header: verified live (2026-11-14) that at
+    # least one current Chrome build fails a cross-origin fetch() reading a
+    # response that carries `Content-Disposition: attachment` -- the
+    # response never reaches JS (fetch rejects with a misleading
+    # "MissingAllowOriginHeader" CORS error) even though the server's
+    # Access-Control-Allow-Origin header is present and correct (confirmed
+    # with curl/http.client against the identical response). Reproduced in
+    # an isolated minimal FastAPI app, so it's Chrome's handling of
+    # attachment-disposition cross-origin fetches, not anything specific to
+    # this backend. The frontend sets its own filename via the anchor
+    # `download` attribute on the blob URL, so this header isn't needed.
+    return Response(content=pdf_bytes, media_type="application/pdf")
